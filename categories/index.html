@@ -268,8 +268,20 @@
 </footer>
         
     
-    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2151744"></script>
-
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script>
+		var gitment = new Gitment({
+			owner: '12218109',
+			repo: 'yangchendev.github.io',
+			oauth: {
+				client_id: '98c4bd820512e5c971df#your client ID',
+				client_secret: '78cc94dee9649e27aacfa8ca99eddb79c3a851ab#your client secret',
+			},
+		})
+		gitment.render('commentContainer')
+	</script>
+	
 
 
 

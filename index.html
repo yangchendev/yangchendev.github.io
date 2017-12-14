@@ -464,6 +464,30 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm instal hexo-deployer-git  --save</span><br></pre></td></tr></table></figure>
 <p>最后使用三部曲将博客发布到GitHub上</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<p>第一次可能要求你添加GitHub的账号和密码，正常执行的效果如下图所示</p>
+<p><img src="/images/20171214/aa.gif" width="600" height="400" align="center"></p>
+<p>上传成功后你可以在仓库中看到你上传的代码</p>
+<p><img src="/images/20171214/2017-12-14_230126.png" width="600" height="400" align="center"></p>
+<p>你可以使用 你的GitHub名.github.io 来访问你的博客了，是不是很6啊</p>
+<hr>
+<h2 id="我知道你可能不会满足于此"><a href="#我知道你可能不会满足于此" class="headerlink" title="我知道你可能不会满足于此"></a>我知道你可能不会满足于此</h2><p>我们完全可以使用我们自己的域名来访问自己的博客，这样是不是更高大上了</p>
+<p>这里我推荐在阿里云的万网上购买域名（我购买的是.top 比较便宜哈哈），域名购买成功后，你需要为你的域名添加解析</p>
+<blockquote>
+<p>这里要添加三个解析：</p>
+<ol>
+<li>第一个的记录值是github为你分配的地址，即你的github名.github.io</li>
+<li>第二个和第三个是github服务器的地址，不填的话会无法访问github的啦</li>
+</ol>
+</blockquote>
+<p><img src="/images/20171214/2017-12-14_230849.png" width="600" height="400" align="center"></p>
+<p>当然还有一个操作是为你的仓库设置自定义的域名，这样就可以通过这个域名来访问 你的github名.github.io</p>
+<p><img src="/images/20171214/cc.gif" width="600" height="400" align="center"></p>
+<h2 id="Hexo-主题"><a href="#Hexo-主题" class="headerlink" title="Hexo 主题"></a>Hexo 主题</h2><p>Hexo 有很多主题可供我们使用，这里我推荐使用 <a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">next主题</a>官网有详细的使用说明，大家看看就会了，我也会推荐一篇教程。</p>
+<h4 id="瞅瞅我的博客"><a href="#瞅瞅我的博客" class="headerlink" title="瞅瞅我的博客"></a><a href="yangchendev.top">瞅瞅我的博客</a></h4><hr>
+<p>参考文档：</p>
+<p><a href="http://www.jianshu.com/p/a3b4f61d4747" target="_blank" rel="noopener">Git安装及SSH Key管理之Windows篇</a></p>
+<p><a href="https://neveryu.github.io/2016/09/03/hexo-next-one/" target="_blank" rel="noopener">Hexo-NexT搭建个人博客</a></p>
+<p><a href="http://www.jianshu.com/p/f054333ac9e6" target="_blank" rel="noopener">hexo的next主题个性化教程:打造炫酷网站</a></p>
 
           
         
@@ -660,7 +684,7 @@
   </a>
   <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共948字</span>
+  <span class="post-count">博客全站共1.3k字</span>
 </div>
 </div>
 

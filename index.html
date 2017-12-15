@@ -444,7 +444,7 @@
 <li>在命令行下输入 <code>node -v</code>，如果显示了当前node.js的版本号说明node.js安装成功，如下图所示<br><img src="/images/20171214/nodejs安装成功.png" width="400" height="200" align="center"></li>
 </ul>
 <h2 id="安装Hexo-可参考-官方教程"><a href="#安装Hexo-可参考-官方教程" class="headerlink" title="安装Hexo (可参考 官方教程)"></a>安装Hexo (可参考 <a href="https://hexo.io/docs/" target="_blank" rel="noopener">官方教程</a>)</h2><p>安装好了Node.js ，再安装Hexo就很简单了哈，在任意位置右键点击Git Bash Here打开命令行，再输入以下命令</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm intall -g hexo-cli</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 <p>安装 Hexo 完成后，我们首先需要为我们的项目创建一个指定文件夹（例如我在E盘目录下创建了一个文件夹 blog 。E:\blog ），在指定文件夹中执行下列命令， Hexo 将会在指定文件夹中新建所需要的文件。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
 <p>命令执行完后，会在该目录下新建如下文件</p>
@@ -492,7 +492,7 @@
 <p>哈哈，第三个坑来啦，我们在修改_config.yml时，需要在“：”后添加一个空格再写值，不然会出错</p>
 </blockquote>
 <h2 id="安装hexo-deployer-git自动部署发布工具"><a href="#安装hexo-deployer-git自动部署发布工具" class="headerlink" title="安装hexo-deployer-git自动部署发布工具"></a>安装hexo-deployer-git自动部署发布工具</h2><p>使用如下命令安装（记得在博客的根目录下打开git bash）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm instal hexo-deployer-git  --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git  --save</span><br></pre></td></tr></table></figure>
 <p>最后使用三部曲将博客发布到GitHub上</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 <p>第一次可能要求你添加GitHub的账号和密码，正常执行的效果如下图所示</p>

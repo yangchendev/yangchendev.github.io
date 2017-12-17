@@ -92,7 +92,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="TestNG,Appium," />
 
 
 
@@ -108,17 +108,21 @@
 
 
 
-<meta name="description" content="关于我Hi，我是杨晨，一个菜鸟级Android工程师，目前就读于浙江大学软件学院，是一名研一的学生，对Android开发情有独钟，立志成为一名高级Android开发工程师。 关于本博客 2017.12.14：使用Hexo+GitHub创建本博客，使用的是NexT主题，评论系统采用来必力。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于我">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta name="description" content="前言  因项目需要使用到Android自动化测试，自己就抽空学习了下，了解到目前主流的是采用TestNG和Appium来进行Android自动化测试，写下这篇博客来记录这几天的学习历程。">
+<meta name="keywords" content="TestNG,Appium">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用TestNG和Appium进行Android自动化测试(一)">
+<meta property="og:url" content="http://yoursite.com/2017/12/17/android-automated-test-by-testng-appium/index.html">
 <meta property="og:site_name" content="Yang Chen&#39;s Blog">
-<meta property="og:description" content="关于我Hi，我是杨晨，一个菜鸟级Android工程师，目前就读于浙江大学软件学院，是一名研一的学生，对Android开发情有独钟，立志成为一名高级Android开发工程师。 关于本博客 2017.12.14：使用Hexo+GitHub创建本博客，使用的是NexT主题，评论系统采用来必力。">
+<meta property="og:description" content="前言  因项目需要使用到Android自动化测试，自己就抽空学习了下，了解到目前主流的是采用TestNG和Appium来进行Android自动化测试，写下这篇博客来记录这几天的学习历程。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-17T10:58:45.663Z">
+<meta property="og:image" content="http://yoursite.com/images/20171217/2017-12-17_195207.png">
+<meta property="og:image" content="http://yoursite.com/images/20171217/2017-12-17_195659.png">
+<meta property="og:updated_time" content="2017-12-17T12:22:45.379Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于我">
-<meta name="twitter:description" content="关于我Hi，我是杨晨，一个菜鸟级Android工程师，目前就读于浙江大学软件学院，是一名研一的学生，对Android开发情有独钟，立志成为一名高级Android开发工程师。 关于本博客 2017.12.14：使用Hexo+GitHub创建本博客，使用的是NexT主题，评论系统采用来必力。">
+<meta name="twitter:title" content="使用TestNG和Appium进行Android自动化测试(一)">
+<meta name="twitter:description" content="前言  因项目需要使用到Android自动化测试，自己就抽空学习了下，了解到目前主流的是采用TestNG和Appium来进行Android自动化测试，写下这篇博客来记录这几天的学习历程。">
+<meta name="twitter:image" content="http://yoursite.com/images/20171217/2017-12-17_195207.png">
 
 
 
@@ -147,13 +151,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/17/android-automated-test-by-testng-appium/"/>
 
 
 
 
 
-  <title>关于我 | Yang Chen's Blog</title>
+  <title>使用TestNG和Appium进行Android自动化测试(一) | Yang Chen's Blog</title>
   
 
 
@@ -287,37 +291,243 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/17/android-automated-test-by-testng-appium/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨晨">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yang Chen's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">关于我</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h2><p>Hi，我是杨晨，一个菜鸟级Android工程师，目前就读于浙江大学软件学院，是一名研一的学生，对Android开发情有独钟，立志成为一名高级Android开发工程师。</p>
-<h2 id="关于本博客"><a href="#关于本博客" class="headerlink" title="关于本博客"></a>关于本博客</h2><ul>
-<li>2017.12.14：使用Hexo+GitHub创建本博客，使用的是NexT主题，评论系统采用来必力。</li>
-</ul>
-
+          <h1 class="post-title" itemprop="name headline">使用TestNG和Appium进行Android自动化测试(一)</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-17T19:00:50+08:00">
+                2017-12-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android自动化测试/" itemprop="url" rel="index">
+                    <span itemprop="name">Android自动化测试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  563
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><br></p>
+<blockquote>
+<p>因项目需要使用到Android自动化测试，自己就抽空学习了下，了解到目前主流的是采用TestNG和Appium来进行Android自动化测试，写下这篇博客来记录这几天的学习历程。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="Appium-是什么？"><a href="#Appium-是什么？" class="headerlink" title="Appium 是什么？"></a>Appium 是什么？</h1><p>appium 是一个自动化测试开源工具，支持 iOS 平台和 Android 平台上的原生应用，web应用和混合应用，我这里写的是Android平台下的自动化测试，对其他平台自动化测试感兴趣的话可以自己找资料学习。</p>
+<h2 id="安装Appium"><a href="#安装Appium" class="headerlink" title="安装Appium"></a>安装Appium</h2><p>我们要使用Appium必须要在本地电脑里安装Appium-Server，但是官方早在2015-12-08之后就再也没更新过这个Appium-Server了，要说用的话还是可以用的，不过这里推荐大家使用appium-desktop，这也是官方开发的appium桌面端，<a href="https://github.com/appium/appium-desktop/releases/download/v1.2.7/appium-desktop-Setup-1.2.7.exe" target="_blank" rel="noopener">点我下载</a> ，安装步骤的话一直点下一步就行了。</p>
+<h2 id="运行Appium"><a href="#运行Appium" class="headerlink" title="运行Appium"></a>运行Appium</h2><p>在桌面上找到Appium的图标点击运行，可以看到如下的界面<br><br><img src="/images/20171217/2017-12-17_195207.png" width="400" height="200" align="center"></p>
+<ol>
+<li>host: appium-server的主机地址，建议你改为127.0.0.1</li>
+<li>port: appium-server要监听的端口，默认为4723，建议不需要修改</li>
+</ol>
+<p>点击Start Server后，可以看到下面的界面，说明已经启动成功了</p>
+<p><img src="/images/20171217/2017-12-17_195659.png" width="400" height="200" align="center"></p>
+<h1 id="使用Appium"><a href="#使用Appium" class="headerlink" title="使用Appium"></a>使用Appium</h1><p>使用Appium需要以下几个jar/zip 下载链接：<a href="https://pan.baidu.com/s/1qYiKl1E" target="_blank" rel="noopener">https://pan.baidu.com/s/1qYiKl1E</a> 密码：xug0</p>
+<ol>
+<li>java-client-5.0.4.jar</li>
+<li>selenium-java-3.8.1.zip</li>
+<li>selenium-server-standalone-3.8.1.jar</li>
+</ol>
+<p>不要问我为什么是这三个东东下就是了</p>
+<h1 id="TestNG是什么？"><a href="#TestNG是什么？" class="headerlink" title="TestNG是什么？"></a>TestNG是什么？</h1><p>TestNG是一个开源自动化测试框架，TestNG表示下一代(Next Generation的首字母)，其灵感来自JUnit和NUnit，但引入了一些新的功能，使其功能更强大，使用更方便。</p>
+<h2 id="安装TestNG"><a href="#安装TestNG" class="headerlink" title="安装TestNG"></a>安装TestNG</h2><p>这里推荐使用eclipse的在线安装，安装步骤如下</p>
+<ol>
+<li>选择菜单：Help-&gt;Eclipse Marketplace，然后在search框中输入testng，点击右边的Go按钮，找到TestNG for Eclipse 点击Install，等待安装</li>
+<li>直到Finished之后，重启Eclipse完成安装</li>
+</ol>
+<blockquote>
+<p>到此Android自动化测试的工具你都应该下好了，那么使用TestNG和Appium进行Android自动化测试(二)将会介绍如何使用它们。</p>
+</blockquote>
+
       
     </div>
     
     
     
+	<div>
+	
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-y-combinator"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+	
+	</div>
+	<div>
+      
+        
+
+      
+</div>
+    
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TestNG/" rel="tag"><i class="fa fa-tag"></i> TestNG</a>
+          
+            <a href="/tags/Appium/" rel="tag"><i class="fa fa-tag"></i> Appium</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/14/use-hexo-github-to-make-blog/" rel="next" title="使用Hexo和GitHub来搭建个人博客">
+                <i class="fa fa-chevron-left"></i> 使用Hexo和GitHub来搭建个人博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -326,6 +536,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjM5NS84OTU2"></div>
+    
+  </div>
+
 
         </div>
         
@@ -448,7 +664,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于我"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x5173;&#x4E8E;&#x6211;" class="headerlink" title="&#x5173;&#x4E8E;&#x6211;"></a>&#x5173;&#x4E8E;&#x6211;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于本博客"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x5173;&#x4E8E;&#x672C;&#x535A;&#x5BA2;" class="headerlink" title="&#x5173;&#x4E8E;&#x672C;&#x535A;&#x5BA2;"></a>&#x5173;&#x4E8E;&#x672C;&#x535A;&#x5BA2;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Appium-是什么？"><span class="nav-number">2.</span> <span class="nav-text"><a href="#Appium-&#x662F;&#x4EC0;&#x4E48;&#xFF1F;" class="headerlink" title="Appium &#x662F;&#x4EC0;&#x4E48;&#xFF1F;"></a>Appium &#x662F;&#x4EC0;&#x4E48;&#xFF1F;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Appium"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#&#x5B89;&#x88C5;Appium" class="headerlink" title="&#x5B89;&#x88C5;Appium"></a>&#x5B89;&#x88C5;Appium</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行Appium"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="#&#x8FD0;&#x884C;Appium" class="headerlink" title="&#x8FD0;&#x884C;Appium"></a>&#x8FD0;&#x884C;Appium</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Appium"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x4F7F;&#x7528;Appium" class="headerlink" title="&#x4F7F;&#x7528;Appium"></a>&#x4F7F;&#x7528;Appium</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TestNG是什么？"><span class="nav-number">4.</span> <span class="nav-text"><a href="#TestNG&#x662F;&#x4EC0;&#x4E48;&#xFF1F;" class="headerlink" title="TestNG&#x662F;&#x4EC0;&#x4E48;&#xFF1F;"></a>TestNG&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装TestNG"><span class="nav-number">4.1.</span> <span class="nav-text"><a href="#&#x5B89;&#x88C5;TestNG" class="headerlink" title="&#x5B89;&#x88C5;TestNG"></a>&#x5B89;&#x88C5;TestNG</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -585,10 +801,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -617,6 +833,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

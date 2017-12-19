@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #222222; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #222222, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #222222;    /*上边框颜色*/
+        border-left-color: #222222;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="TestNG,Appium," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="前言  看过了上一篇使用TestNG和Appium进行Android自动化测试(一)，相信你已经把所需要的资源都准备好了，接下来就来看看如何使用TestNG和Appium进行Android的自动化测试。">
+<meta name="keywords" content="TestNG,Appium">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用TestNG和Appium进行Android自动化测试(二)">
+<meta property="og:url" content="http://yoursite.com/2017/12/19/android-automated-test-by-testng-appium-two/index.html">
+<meta property="og:site_name" content="Yang Chen&#39;s Blog">
+<meta property="og:description" content="前言  看过了上一篇使用TestNG和Appium进行Android自动化测试(一)，相信你已经把所需要的资源都准备好了，接下来就来看看如何使用TestNG和Appium进行Android的自动化测试。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/20171219/banner.jpg">
+<meta property="og:image" content="http://yoursite.com/images/20171219/aa.gif">
+<meta property="og:image" content="http://yoursite.com/images/20171219/BB.gif">
+<meta property="og:image" content="http://yoursite.com/images/20171219/2017-12-19_192512.png">
+<meta property="og:image" content="http://yoursite.com/images/20171219/2017-12-19_195545.png">
+<meta property="og:image" content="http://yoursite.com/images/20171219/2017-12-19_195805.png">
+<meta property="og:image" content="http://yoursite.com/images/20171219/2017-12-19_200047.png">
+<meta property="og:updated_time" content="2017-12-19T12:23:11.870Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用TestNG和Appium进行Android自动化测试(二)">
+<meta name="twitter:description" content="前言  看过了上一篇使用TestNG和Appium进行Android自动化测试(一)，相信你已经把所需要的资源都准备好了，接下来就来看看如何使用TestNG和Appium进行Android的自动化测试。">
+<meta name="twitter:image" content="http://yoursite.com/images/20171219/banner.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/19/android-automated-test-by-testng-appium-two/"/>
+
+
+
+
+
+  <title>使用TestNG和Appium进行Android自动化测试(二) | Yang Chen's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yang Chen's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+	  
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/19/android-automated-test-by-testng-appium-two/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨晨">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yang Chen's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">使用TestNG和Appium进行Android自动化测试(二)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T17:56:20+08:00">
+                2017-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android自动化测试/" itemprop="url" rel="index">
+                    <span itemprop="name">Android自动化测试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,967
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/images/20171219/banner.jpg" width="600" height="400" align="center"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><br></p>
+<blockquote>
+<p>看过了上一篇<a href="http://yangchendev.top/2017/12/17/android-automated-test-by-testng-appium/" target="_blank" rel="noopener">使用TestNG和Appium进行Android自动化测试(一)</a>，相信你已经把所需要的资源都准备好了，接下来就来看看如何使用TestNG和Appium进行Android的自动化测试。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="eclipse项目的配置"><a href="#eclipse项目的配置" class="headerlink" title="eclipse项目的配置"></a>eclipse项目的配置</h1><h2 id="导入jar-zip"><a href="#导入jar-zip" class="headerlink" title="导入jar/zip"></a>导入jar/zip</h2><ol>
+<li>创建一个Java Project(File-&gt;New-&gt;Java Project)</li>
+<li>导入（右键项目-&gt;Build Path-&gt;Configure Build Path-&gt;Libraries-&gt;Add External JARs）<ul>
+<li>java-client-5.0.4.jar</li>
+<li>selenium-java-3.8.1.zip</li>
+<li>selenium-server-standalone-3.8.1.jar<br><img src="/images/20171219/aa.gif" width="600" height="400" align="center"> </li>
+</ul>
+</li>
+<li>添加TestNG依赖（右键项目-&gt;Build Path-&gt;Configure Build Path-&gt;Libraries-&gt;Add Library-&gt;TestNG）<br><img src="/images/20171219/BB.gif" width="600" height="400" align="center"> </li>
+<li>新建一个包和一个类</li>
+</ol>
+<p>到此，eclipse下项目的配置已经完成了。</p>
+<h1 id="使用TestNG"><a href="#使用TestNG" class="headerlink" title="使用TestNG"></a>使用TestNG</h1><blockquote>
+<p>TestNG使用起来比JUnit还要方便，你创建的类不需要继承某个特定类，只需使用注解即可，想要系统学习TestNG的同学可以看文末的链接，我这里只使用@BeforeTest 、@Test 、@AfterTest和 @Test(dependsOnMethods = {methodName}) 这些注解。</p>
+</blockquote>
+<h2 id="BeforeTest"><a href="#BeforeTest" class="headerlink" title="@BeforeTest"></a>@BeforeTest</h2><p>注释的方法将在所有测试方法运行之前运行，我们可以在该方法下进行Appium的DesiredCapabilities（这个可以先不管，后面会讲）的初始化。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@BeforeTest</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initAppium</span><span class="params">()</span> <span class="keyword">throws</span> MalformedURLException </span>&#123;</span><br><span class="line">	DesiredCapabilities capabilities = <span class="keyword">new</span> DesiredCapabilities();</span><br><span class="line">	capabilities.setCapability(<span class="string">"deviceName"</span>, <span class="string">"emulator-5554"</span>);</span><br><span class="line">       capabilities.setCapability(<span class="string">"automationName"</span>, <span class="string">"Appium"</span>);</span><br><span class="line">       capabilities.setCapability(<span class="string">"platformName"</span>, <span class="string">"Android"</span>);</span><br><span class="line">       capabilities.setCapability(<span class="string">"platformVersion"</span>, <span class="string">"6.0"</span>);</span><br><span class="line">       <span class="comment">//支持中文输入</span></span><br><span class="line">       capabilities.setCapability(<span class="string">"unicodeKeyboard"</span> ,<span class="keyword">true</span>);</span><br><span class="line">       capabilities.setCapability(<span class="string">"resetKeyboard"</span>, <span class="keyword">true</span>);</span><br><span class="line">       capabilities.setCapability(<span class="string">"appPackage"</span>, <span class="string">"com.allelink.wzyx"</span>);</span><br><span class="line">       capabilities.setCapability(<span class="string">"appActivity"</span>, <span class="string">"com.allelink.wzyx.activity.SplashActivity"</span>);</span><br><span class="line">       driver = <span class="keyword">new</span> AndroidDriver(<span class="keyword">new</span> URL(<span class="string">"http://127.0.0.1:4723/wd/hub"</span>), capabilities);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Test"><a href="#Test" class="headerlink" title="@Test"></a>@Test</h2><p>将类或方法标记为测试的一部分，我们将在改方法下写测试用例。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testLoginSuccess</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">	driver.manage().timeouts().implicitlyWait(<span class="number">5</span>, TimeUnit.SECONDS);</span><br><span class="line">	List&lt;WebElement&gt; loginInputs = driver.findElementsByClassName(<span class="string">"android.widget.EditText"</span>);</span><br><span class="line">	<span class="comment">//用户名输入框</span></span><br><span class="line">	WebElement userName = loginInputs.get(<span class="number">0</span>);</span><br><span class="line">	<span class="comment">//密码输入框</span></span><br><span class="line">	WebElement password = loginInputs.get(<span class="number">1</span>);</span><br><span class="line">	WebElement loginBtn = driver.findElement(By.id(<span class="string">"btn_login_login"</span>));</span><br><span class="line">	userName.sendKeys(<span class="string">""</span>);</span><br><span class="line">	password.sendKeys(<span class="string">""</span>);</span><br><span class="line">	<span class="comment">//点击登录按钮</span></span><br><span class="line">	loginBtn.click();</span><br><span class="line">	Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">	List&lt;WebElement&gt; homes = driver.findElementsByClassName(<span class="string">"android.widget.TextView"</span>);</span><br><span class="line">	WebElement home = homes.get(<span class="number">0</span>);</span><br><span class="line">	assertTrue(home.getAttribute(<span class="string">"name"</span>).equals(<span class="string">"首页"</span>));</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="AfterTest"><a href="#AfterTest" class="headerlink" title="@AfterTest"></a>@AfterTest</h2><p>注释的方法将在属于所有测试方法运行之后运行，在这里我们可以用来关闭测试的应用。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@AfterTest</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">endTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	driver.quit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Test-dependsOnMethods-methodName"><a href="#Test-dependsOnMethods-methodName" class="headerlink" title="@Test(dependsOnMethods = {methodName})"></a>@Test(dependsOnMethods = {methodName})</h2><p>在TestNG中，我们使用dependOnMethods来实现依赖测试。 如果依赖方法失败，则将跳过所有后续测试方法，如果依赖方法成功则将执行下面的测试方法。</p>
+<p>常见的场景：只有在登录成功后才能进入到应用的首页；只有订单提交成功后才能进行订单的支付。</p>
+<h1 id="使用Appium"><a href="#使用Appium" class="headerlink" title="使用Appium"></a>使用Appium</h1><h2 id="DesiredCapabilities"><a href="#DesiredCapabilities" class="headerlink" title="DesiredCapabilities"></a>DesiredCapabilities</h2><p>在使用Appium前，我们有必要了解 DesiredCapabilities ，DesiredCapabilities 在启动 session 的时候是必须提供的，是以 key value 字典的方式存放，客户端将这些键值对发给服务端，告诉服务端我们想要怎么测试。</p>
+<p>它告诉 appium Server这样一些事情：</p>
+<ul>
+<li>automationName：使用哪种自动化引擎，默认是Appium</li>
+<li>platformName：测试的平台 Android、iOS</li>
+<li>platformVersion：指定平台的系统版本，Android 版本最好不要使用 6.0 以上的，貌似在7.0版本的设备上不兼容</li>
+<li>deviceName：设备名，可以使用 adb devices 命令来查看</li>
+</ul>
+<p><img src="/images/20171219/2017-12-19_192512.png" width="600" height="400" align="center"> </p>
+<ul>
+<li>appPackage：测试应用的包名，如微信的包名为com.tencent.mm</li>
+<li>appActivity：测试应用的启动Activity，这里要注意的是如果测试的应用是系统自带的比如计算器，可以写成“.Calculaor”，如果不是的话建议写全，如com.tencent.mm.activity.SplashActivity</li>
+<li>unicodeKeyboard：如果要输入中文的话，可以给这个值为true</li>
+<li>resetKeyboard：和上面的成对使用</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">DesiredCapabilities capabilities = <span class="keyword">new</span> DesiredCapabilities();</span><br><span class="line">capabilities.setCapability(<span class="string">"deviceName"</span>, <span class="string">"emulator-5554"</span>);</span><br><span class="line">capabilities.setCapability(<span class="string">"automationName"</span>, <span class="string">"Appium"</span>);</span><br><span class="line">capabilities.setCapability(<span class="string">"platformName"</span>, <span class="string">"Android"</span>);</span><br><span class="line">capabilities.setCapability(<span class="string">"platformVersion"</span>, <span class="string">"6.0"</span>);</span><br><span class="line"><span class="comment">//支持中文输入</span></span><br><span class="line">capabilities.setCapability(<span class="string">"unicodeKeyboard"</span> ,<span class="keyword">true</span>);</span><br><span class="line">capabilities.setCapability(<span class="string">"resetKeyboard"</span>, <span class="keyword">true</span>);</span><br><span class="line">capabilities.setCapability(<span class="string">"appPackage"</span>, <span class="string">"com.allelink.wzyx"</span>);</span><br><span class="line">capabilities.setCapability(<span class="string">"appActivity"</span>, <span class="string">"com.allelink.wzyx.activity.SplashActivity"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="AndroidDriver"><a href="#AndroidDriver" class="headerlink" title="AndroidDriver"></a>AndroidDriver</h2><p>AndroidDriver为我们提供了一系列操作Android应用的方法，我们要做的是在@BeforeTest下初始化它<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driver = <span class="keyword">new</span> AndroidDriver(<span class="keyword">new</span> URL(<span class="string">"http://127.0.0.1:4723/wd/hub"</span>), capabilities);</span><br></pre></td></tr></table></figure></p>
+<p>上面的 127.0.0.1 是 Appium-server 的地址，4723 为其的端口号，要将 AndroidDriver 声明为全局变量，方便其他方法调用。</p>
+<h2 id="延时（显示-隐示）"><a href="#延时（显示-隐示）" class="headerlink" title="延时（显示/隐示）"></a>延时（显示/隐示）</h2><p>一旦我们编写好自动化测试脚本，执行之后，它将不会在适当的地方下来，比如启动页的几秒等待，网络数据的加载等等，这就需要我们在代码中进行延时，其中延时又分为显示和隐示</p>
+<ol>
+<li>显示延时：使用 Thread.sleep() 来延时</li>
+<li>隐示延时：使用 driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);</li>
+</ol>
+<h2 id="界面元素定位"><a href="#界面元素定位" class="headerlink" title="界面元素定位"></a>界面元素定位</h2><h3 id="uiautomatorviewer"><a href="#uiautomatorviewer" class="headerlink" title="uiautomatorviewer"></a>uiautomatorviewer</h3><p>appium 通过 uiautomatorviewer.bat 工具来查看控件的属性。该工具位于 Android SDK 的 /tools/bin/ 目录下，为了以后方便使用我们可以将其所在的目录添加到系统环境变量中去。</p>
+<p>在命令行中输入uiautomatorviewer启动uiautomatorviewer<br><img src="/images/20171219/2017-12-19_195545.png" align="center"><br><img src="/images/20171219/2017-12-19_195805.png" align="center"> </p>
+<h3 id="元素定位"><a href="#元素定位" class="headerlink" title="元素定位"></a>元素定位</h3><p>AndroidDriver 为我们提供了比较多的定位方式，这里推荐使用 id 定位</p>
+<h4 id="id-定位"><a href="#id-定位" class="headerlink" title="id 定位"></a>id 定位</h4><p>这里以微信为例，如下图所示，在resource-id这一栏显示就是这个TextView的id。<br><img src="/images/20171219/2017-12-19_200047.png" align="center"><br>那我们可以通过<code>driver.findElement(By.id(&quot;title&quot;));</code>来获取这个元素，记得使用的是android:id/后面的值。</p>
+<p>这样我们就获取到了这个元素，其类型是 WebElement 然后可以调用它的click方法来实现点击。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">WebElement near = driver.findElement(By.id(<span class="string">"ll_bottom_bar_near_tab_layout"</span>));</span><br><span class="line">near.click();</span><br></pre></td></tr></table></figure></p>
+<p>所以我们在进行 Android 应用开发的过程中应该要多为元素写上 id 。</p>
+<h1 id="测试实战"><a href="#测试实战" class="headerlink" title="测试实战"></a>测试实战</h1><p>下面我将使用TestNG+Appium为大家带来一个自动化测试的例子，测试的内容是应用的登录功能</p>
+<ol>
+<li><p>声明一个AndroidDriver的全局变量</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AndroidDriver driver;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在@BeforeTest注解下初始化DesiredCapabilities，我这里使用的Android 6.0 的模拟器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@BeforeTest</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initAppium</span><span class="params">()</span> <span class="keyword">throws</span> MalformedURLException </span>&#123;</span><br><span class="line">	DesiredCapabilities capabilities = <span class="keyword">new</span> DesiredCapabilities();</span><br><span class="line">	capabilities.setCapability(<span class="string">"deviceName"</span>, <span class="string">"emulator-5554"</span>);</span><br><span class="line">	capabilities.setCapability(<span class="string">"automationName"</span>, <span class="string">"Appium"</span>);</span><br><span class="line">	capabilities.setCapability(<span class="string">"platformName"</span>, <span class="string">"Android"</span>);</span><br><span class="line">	capabilities.setCapability(<span class="string">"platformVersion"</span>, <span class="string">"6.0"</span>);</span><br><span class="line">	<span class="comment">//支持中文输入</span></span><br><span class="line">	capabilities.setCapability(<span class="string">"unicodeKeyboard"</span> ,<span class="keyword">true</span>);</span><br><span class="line">	capabilities.setCapability(<span class="string">"resetKeyboard"</span>, <span class="keyword">true</span>);</span><br><span class="line">	capabilities.setCapability(<span class="string">"appPackage"</span>, <span class="string">"com.allelink.wzyx"</span>);</span><br><span class="line">	capabilities.setCapability(<span class="string">"appActivity"</span>, <span class="string">"com.allelink.wzyx.activity.SplashActivity"</span>);</span><br><span class="line">	driver = <span class="keyword">new</span> AndroidDriver(<span class="keyword">new</span> URL(<span class="string">"http://127.0.0.1:4723/wd/hub"</span>), capabilities);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在@Test注解下测试登录功能，这里需要说明的是我们可以使用<code>sendKeys</code>来模拟键盘的输入，最后可以通过判断首页是否显示来判断登录是否成功。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testLoginSuccess</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">	driver.manage().timeouts().implicitlyWait(<span class="number">5</span>, TimeUnit.SECONDS);</span><br><span class="line">	List&lt;WebElement&gt; loginInputs = driver.findElementsByClassName(<span class="string">"android.widget.EditText"</span>);</span><br><span class="line">	<span class="comment">//用户名输入框</span></span><br><span class="line">	WebElement userName = loginInputs.get(<span class="number">0</span>);</span><br><span class="line">	<span class="comment">//密码输入框</span></span><br><span class="line">	WebElement password = loginInputs.get(<span class="number">1</span>);</span><br><span class="line">	WebElement loginBtn = driver.findElement(By.id(<span class="string">"btn_login_login"</span>));</span><br><span class="line">	userName.sendKeys(<span class="string">"15700178425"</span>);</span><br><span class="line">	password.sendKeys(<span class="string">"test123"</span>);</span><br><span class="line">	<span class="comment">//点击登录按钮</span></span><br><span class="line">	loginBtn.click();</span><br><span class="line">	Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">	List&lt;WebElement&gt; homes = driver.findElementsByClassName(<span class="string">"android.widget.TextView"</span>);</span><br><span class="line">	WebElement home = homes.get(<span class="number">0</span>);</span><br><span class="line">	assertTrue(home.getAttribute(<span class="string">"name"</span>).equals(<span class="string">"首页"</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在@AfterTest注解下关闭应用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@AfterTest</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">endTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	driver.quit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>完整代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppTest</span> </span>&#123;</span><br><span class="line">	AndroidDriver driver;</span><br><span class="line">	<span class="meta">@BeforeTest</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initAppium</span><span class="params">()</span> <span class="keyword">throws</span> MalformedURLException </span>&#123;</span><br><span class="line">		DesiredCapabilities capabilities = <span class="keyword">new</span> DesiredCapabilities();</span><br><span class="line">		capabilities.setCapability(<span class="string">"deviceName"</span>, <span class="string">"emulator-5554"</span>);</span><br><span class="line">		capabilities.setCapability(<span class="string">"automationName"</span>, <span class="string">"Appium"</span>);</span><br><span class="line">		capabilities.setCapability(<span class="string">"platformName"</span>, <span class="string">"Android"</span>);</span><br><span class="line">		capabilities.setCapability(<span class="string">"platformVersion"</span>, <span class="string">"6.0"</span>);</span><br><span class="line">		<span class="comment">//支持中文输入</span></span><br><span class="line">		capabilities.setCapability(<span class="string">"unicodeKeyboard"</span> ,<span class="keyword">true</span>);</span><br><span class="line">		capabilities.setCapability(<span class="string">"resetKeyboard"</span>, <span class="keyword">true</span>);</span><br><span class="line">		capabilities.setCapability(<span class="string">"appPackage"</span>, <span class="string">"com.allelink.wzyx"</span>);</span><br><span class="line">		capabilities.setCapability(<span class="string">"appActivity"</span>, <span class="string">"com.allelink.wzyx.activity.SplashActivity"</span>);</span><br><span class="line">		driver = <span class="keyword">new</span> AndroidDriver(<span class="keyword">new</span> URL(<span class="string">"http://127.0.0.1:4723/wd/hub"</span>), capabilities);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testLoginSuccess</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">		driver.manage().timeouts().implicitlyWait(<span class="number">5</span>, TimeUnit.SECONDS);</span><br><span class="line">		List&lt;WebElement&gt; loginInputs = driver.findElementsByClassName(<span class="string">"android.widget.EditText"</span>);</span><br><span class="line">		<span class="comment">//用户名输入框</span></span><br><span class="line">		WebElement userName = loginInputs.get(<span class="number">0</span>);</span><br><span class="line">		<span class="comment">//密码输入框</span></span><br><span class="line">		WebElement password = loginInputs.get(<span class="number">1</span>);</span><br><span class="line">		WebElement loginBtn = driver.findElement(By.id(<span class="string">"btn_login_login"</span>));</span><br><span class="line">		userName.sendKeys(<span class="string">"15700178425"</span>);</span><br><span class="line">		password.sendKeys(<span class="string">"ych123"</span>);</span><br><span class="line">		<span class="comment">//点击登录按钮</span></span><br><span class="line">		loginBtn.click();</span><br><span class="line">		Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">		List&lt;WebElement&gt; homes = driver.findElementsByClassName(<span class="string">"android.widget.TextView"</span>);</span><br><span class="line">		WebElement home = homes.get(<span class="number">0</span>);</span><br><span class="line">		assertTrue(home.getAttribute(<span class="string">"name"</span>).equals(<span class="string">"首页"</span>));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@AfterTest</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">endTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		driver.quit();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>想要更系统的学习自动化测试可看下面的链接</p>
+<p><a href="http://www.testclass.net/appium/" target="_blank" rel="noopener">移动 App 自动化测试框架 Appium 教程</a><br><a href="http://www.yiibai.com/testng/hello-world-example.html" target="_blank" rel="noopener">TestNG 教程</a></p>
+
+      
+    </div>
+    
+    
+    
+	<div>
+	
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-y-combinator"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+	
+	</div>
+	<div>
+      
+        
+
+      
+</div>
+    
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TestNG/" rel="tag"><i class="fa fa-tag"></i> TestNG</a>
+          
+            <a href="/tags/Appium/" rel="tag"><i class="fa fa-tag"></i> Appium</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/17/android-automated-test-by-testng-appium-one/" rel="next" title="使用TestNG和Appium进行Android自动化测试(一)">
+                <i class="fa fa-chevron-left"></i> 使用TestNG和Appium进行Android自动化测试(一)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjM5NS84OTU2"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="杨晨" />
+          <p class="site-author-name" itemprop="name">杨晨</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/yangchendev" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:yangchendev@qq.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#eclipse项目的配置"><span class="nav-number">2.</span> <span class="nav-text"><a href="#eclipse&#x9879;&#x76EE;&#x7684;&#x914D;&#x7F6E;" class="headerlink" title="eclipse&#x9879;&#x76EE;&#x7684;&#x914D;&#x7F6E;"></a>eclipse&#x9879;&#x76EE;&#x7684;&#x914D;&#x7F6E;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#导入jar-zip"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#&#x5BFC;&#x5165;jar-zip" class="headerlink" title="&#x5BFC;&#x5165;jar/zip"></a>&#x5BFC;&#x5165;jar/zip</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用TestNG"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x4F7F;&#x7528;TestNG" class="headerlink" title="&#x4F7F;&#x7528;TestNG"></a>&#x4F7F;&#x7528;TestNG</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BeforeTest"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#BeforeTest" class="headerlink" title="@BeforeTest"></a>@BeforeTest</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test"><span class="nav-number">3.2.</span> <span class="nav-text"><a href="#Test" class="headerlink" title="@Test"></a>@Test</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AfterTest"><span class="nav-number">3.3.</span> <span class="nav-text"><a href="#AfterTest" class="headerlink" title="@AfterTest"></a>@AfterTest</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test-dependsOnMethods-methodName"><span class="nav-number">3.4.</span> <span class="nav-text"><a href="#Test-dependsOnMethods-methodName" class="headerlink" title="@Test(dependsOnMethods = {methodName})"></a>@Test(dependsOnMethods = {methodName})</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Appium"><span class="nav-number">4.</span> <span class="nav-text"><a href="#&#x4F7F;&#x7528;Appium" class="headerlink" title="&#x4F7F;&#x7528;Appium"></a>&#x4F7F;&#x7528;Appium</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DesiredCapabilities"><span class="nav-number">4.1.</span> <span class="nav-text"><a href="#DesiredCapabilities" class="headerlink" title="DesiredCapabilities"></a>DesiredCapabilities</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AndroidDriver"><span class="nav-number">4.2.</span> <span class="nav-text"><a href="#AndroidDriver" class="headerlink" title="AndroidDriver"></a>AndroidDriver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#延时（显示-隐示）"><span class="nav-number">4.3.</span> <span class="nav-text"><a href="#&#x5EF6;&#x65F6;&#xFF08;&#x663E;&#x793A;-&#x9690;&#x793A;&#xFF09;" class="headerlink" title="&#x5EF6;&#x65F6;&#xFF08;&#x663E;&#x793A;/&#x9690;&#x793A;&#xFF09;"></a>&#x5EF6;&#x65F6;&#xFF08;&#x663E;&#x793A;/&#x9690;&#x793A;&#xFF09;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#界面元素定位"><span class="nav-number">4.4.</span> <span class="nav-text"><a href="#&#x754C;&#x9762;&#x5143;&#x7D20;&#x5B9A;&#x4F4D;" class="headerlink" title="&#x754C;&#x9762;&#x5143;&#x7D20;&#x5B9A;&#x4F4D;"></a>&#x754C;&#x9762;&#x5143;&#x7D20;&#x5B9A;&#x4F4D;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#uiautomatorviewer"><span class="nav-number">4.4.1.</span> <span class="nav-text"><a href="#uiautomatorviewer" class="headerlink" title="uiautomatorviewer"></a>uiautomatorviewer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素定位"><span class="nav-number">4.4.2.</span> <span class="nav-text"><a href="#&#x5143;&#x7D20;&#x5B9A;&#x4F4D;" class="headerlink" title="&#x5143;&#x7D20;&#x5B9A;&#x4F4D;"></a>&#x5143;&#x7D20;&#x5B9A;&#x4F4D;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#id-定位"><span class="nav-number">4.4.2.1.</span> <span class="nav-text"><a href="#id-&#x5B9A;&#x4F4D;" class="headerlink" title="id &#x5B9A;&#x4F4D;"></a>id &#x5B9A;&#x4F4D;</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试实战"><span class="nav-number">5.</span> <span class="nav-text"><a href="#&#x6D4B;&#x8BD5;&#x5B9E;&#x6218;" class="headerlink" title="&#x6D4B;&#x8BD5;&#x5B9E;&#x6218;"></a>&#x6D4B;&#x8BD5;&#x5B9E;&#x6218;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨晨</span>
+</div>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+  <div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共3.8k字</span>
+</div>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+    <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+<!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js"></script>
+
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/z16.model.json", 0.5);});
+})();
+</script>
+
+</body>
+</html>

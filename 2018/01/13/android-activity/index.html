@@ -108,20 +108,20 @@
 
 
 
-<meta name="description" content="Activity是什么？通俗点说Activity就是能与用户进行交互的界面，如点击、长按、上拉下滑等等。 Activity的4中状态 running：运行状态，位于前台可与用户进行交互 paused：暂停状态，可见但不可与用户进行交互 stopped：停止状态，位于后台不可见 killed：被杀死状态，被回收Activity的生命周期  下面是官网的一张图，有个大致的映像即可。  主要说下面的几种">
+<meta name="description" content="Activity是什么？通俗点说Activity就是能与用户进行交互的界面，如点击、长按、上拉下滑等等。 Activity的4中状态 running：运行状态，位于前台可与用户进行交互 paused：暂停状态，可见但不可与用户进行交互 stopped：停止状态，位于后台不可见 killed：被杀死状态，被回收">
 <meta name="keywords" content="Android,Activity">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Activity基础知识">
 <meta property="og:url" content="http://yoursite.com/2018/01/13/android-activity/index.html">
 <meta property="og:site_name" content="Yang Chen&#39;s Blog">
-<meta property="og:description" content="Activity是什么？通俗点说Activity就是能与用户进行交互的界面，如点击、长按、上拉下滑等等。 Activity的4中状态 running：运行状态，位于前台可与用户进行交互 paused：暂停状态，可见但不可与用户进行交互 stopped：停止状态，位于后台不可见 killed：被杀死状态，被回收Activity的生命周期  下面是官网的一张图，有个大致的映像即可。  主要说下面的几种">
+<meta property="og:description" content="Activity是什么？通俗点说Activity就是能与用户进行交互的界面，如点击、长按、上拉下滑等等。 Activity的4中状态 running：运行状态，位于前台可与用户进行交互 paused：暂停状态，可见但不可与用户进行交互 stopped：停止状态，位于后台不可见 killed：被杀死状态，被回收">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10083635-b82a41e346a4e651.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10083635-29266accaf360684.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-01-13T01:51:44.984Z">
+<meta property="og:updated_time" content="2018-01-13T01:53:29.129Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Activity基础知识">
-<meta name="twitter:description" content="Activity是什么？通俗点说Activity就是能与用户进行交互的界面，如点击、长按、上拉下滑等等。 Activity的4中状态 running：运行状态，位于前台可与用户进行交互 paused：暂停状态，可见但不可与用户进行交互 stopped：停止状态，位于后台不可见 killed：被杀死状态，被回收Activity的生命周期  下面是官网的一张图，有个大致的映像即可。  主要说下面的几种">
+<meta name="twitter:description" content="Activity是什么？通俗点说Activity就是能与用户进行交互的界面，如点击、长按、上拉下滑等等。 Activity的4中状态 running：运行状态，位于前台可与用户进行交互 paused：暂停状态，可见但不可与用户进行交互 stopped：停止状态，位于后台不可见 killed：被杀死状态，被回收">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/10083635-b82a41e346a4e651.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -428,9 +428,10 @@
 <li>running：运行状态，位于前台可与用户进行交互</li>
 <li>paused：暂停状态，可见但不可与用户进行交互</li>
 <li>stopped：停止状态，位于后台不可见</li>
-<li>killed：被杀死状态，被回收<h2 id="Activity的生命周期"><a href="#Activity的生命周期" class="headerlink" title="Activity的生命周期"></a>Activity的生命周期</h2></li>
+<li>killed：被杀死状态，被回收</li>
 </ol>
-<p>下面是官网的一张图，有个大致的映像即可。</p>
+<a id="more"></a>
+<h2 id="Activity的生命周期"><a href="#Activity的生命周期" class="headerlink" title="Activity的生命周期"></a>Activity的生命周期</h2><p>下面是官网的一张图，有个大致的映像即可。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/10083635-b82a41e346a4e651.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="060009291302389.png"></p>
 <p>主要说下面的几种情况：</p>
 <pre><code>1. Activity启动

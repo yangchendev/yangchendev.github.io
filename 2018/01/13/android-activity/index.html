@@ -92,7 +92,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="TestNG,Appium," />
+  <meta name="keywords" content="Android,Activity," />
 
 
 
@@ -108,22 +108,21 @@
 
 
 
-<meta name="description" content="前言  因项目需要使用到Android自动化测试，自己就抽空学习了下，了解到目前主流的是采用TestNG和Appium来进行Android自动化测试，写下这篇博客来记录这几天的学习历程。">
-<meta name="keywords" content="TestNG,Appium">
+<meta name="description" content="Activity是什么？通俗点说Activity就是能与用户进行交互的界面，如点击、长按、上拉下滑等等。 Activity的4中状态 running：运行状态，位于前台可与用户进行交互 paused：暂停状态，可见但不可与用户进行交互 stopped：停止状态，位于后台不可见 killed：被杀死状态，被回收Activity的生命周期  下面是官网的一张图，有个大致的映像即可。  主要说下面的几种">
+<meta name="keywords" content="Android,Activity">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用TestNG和Appium进行Android自动化测试(一)">
-<meta property="og:url" content="http://yoursite.com/2017/12/17/android-automated-test-by-testng-appium-one/index.html">
+<meta property="og:title" content="Activity基础知识">
+<meta property="og:url" content="http://yoursite.com/2018/01/13/android-activity/index.html">
 <meta property="og:site_name" content="Yang Chen&#39;s Blog">
-<meta property="og:description" content="前言  因项目需要使用到Android自动化测试，自己就抽空学习了下，了解到目前主流的是采用TestNG和Appium来进行Android自动化测试，写下这篇博客来记录这几天的学习历程。">
+<meta property="og:description" content="Activity是什么？通俗点说Activity就是能与用户进行交互的界面，如点击、长按、上拉下滑等等。 Activity的4中状态 running：运行状态，位于前台可与用户进行交互 paused：暂停状态，可见但不可与用户进行交互 stopped：停止状态，位于后台不可见 killed：被杀死状态，被回收Activity的生命周期  下面是官网的一张图，有个大致的映像即可。  主要说下面的几种">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/20171217/582d71ae00017d5905400300-360-202.jpg">
-<meta property="og:image" content="http://yoursite.com/images/20171217/2017-12-17_195207.png">
-<meta property="og:image" content="http://yoursite.com/images/20171217/2017-12-17_195659.png">
-<meta property="og:updated_time" content="2017-12-17T12:33:22.693Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10083635-b82a41e346a4e651.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10083635-29266accaf360684.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-01-13T01:51:44.984Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用TestNG和Appium进行Android自动化测试(一)">
-<meta name="twitter:description" content="前言  因项目需要使用到Android自动化测试，自己就抽空学习了下，了解到目前主流的是采用TestNG和Appium来进行Android自动化测试，写下这篇博客来记录这几天的学习历程。">
-<meta name="twitter:image" content="http://yoursite.com/images/20171217/582d71ae00017d5905400300-360-202.jpg">
+<meta name="twitter:title" content="Activity基础知识">
+<meta name="twitter:description" content="Activity是什么？通俗点说Activity就是能与用户进行交互的界面，如点击、长按、上拉下滑等等。 Activity的4中状态 running：运行状态，位于前台可与用户进行交互 paused：暂停状态，可见但不可与用户进行交互 stopped：停止状态，位于后台不可见 killed：被杀死状态，被回收Activity的生命周期  下面是官网的一张图，有个大致的映像即可。  主要说下面的几种">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/10083635-b82a41e346a4e651.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -152,13 +151,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/17/android-automated-test-by-testng-appium-one/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/13/android-activity/"/>
 
 
 
 
 
-  <title>使用TestNG和Appium进行Android自动化测试(一) | Yang Chen's Blog</title>
+  <title>Activity基础知识 | Yang Chen's Blog</title>
   
 
 
@@ -304,7 +303,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/17/android-automated-test-by-testng-appium-one/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/13/android-activity/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨晨">
@@ -321,7 +320,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用TestNG和Appium进行Android自动化测试(一)</h1>
+          <h1 class="post-title" itemprop="name headline">Activity基础知识</h1>
         
 
         <div class="post-meta">
@@ -333,8 +332,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-17T19:00:50+08:00">
-                2017-12-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-13T09:48:00+08:00">
+                2018-01-13
               </time>
             
 
@@ -356,8 +355,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android自动化测试/" itemprop="url" rel="index">
-                    <span itemprop="name">Android自动化测试</span>
+                  <a href="/categories/Android基础知识/" itemprop="url" rel="index">
+                    <span itemprop="name">Android基础知识</span>
                   </a>
                 </span>
 
@@ -387,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  563
+                  702
                 </span>
               
 
@@ -403,7 +402,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -424,37 +423,42 @@
       
 
       
-        <p><img src="/images/20171217/582d71ae00017d5905400300-360-202.jpg" width="600" height="400" align="center"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><br></p>
-<blockquote>
-<p>因项目需要使用到Android自动化测试，自己就抽空学习了下，了解到目前主流的是采用TestNG和Appium来进行Android自动化测试，写下这篇博客来记录这几天的学习历程。</p>
-</blockquote>
-<a id="more"></a>
-<h1 id="Appium-是什么？"><a href="#Appium-是什么？" class="headerlink" title="Appium 是什么？"></a>Appium 是什么？</h1><p>appium 是一个自动化测试开源工具，支持 iOS 平台和 Android 平台上的原生应用，web应用和混合应用，我这里写的是Android平台下的自动化测试，对其他平台自动化测试感兴趣的话可以自己找资料学习。</p>
-<h2 id="安装Appium"><a href="#安装Appium" class="headerlink" title="安装Appium"></a>安装Appium</h2><p>我们要使用Appium必须要在本地电脑里安装Appium-Server，但是官方早在2015-12-08之后就再也没更新过这个Appium-Server了，要说用的话还是可以用的，不过这里推荐大家使用appium-desktop，这也是官方开发的appium桌面端，<a href="https://github.com/appium/appium-desktop/releases/download/v1.2.7/appium-desktop-Setup-1.2.7.exe" target="_blank" rel="noopener">点我下载</a> ，安装步骤的话一直点下一步就行了。</p>
-<h2 id="运行Appium"><a href="#运行Appium" class="headerlink" title="运行Appium"></a>运行Appium</h2><p>在桌面上找到Appium的图标点击运行，可以看到如下的界面<br><br><img src="/images/20171217/2017-12-17_195207.png" width="400" height="200" align="center"></p>
-<ol>
-<li>host: appium-server的主机地址，建议你改为127.0.0.1</li>
-<li>port: appium-server要监听的端口，默认为4723，建议不需要修改</li>
+        <h2 id="Activity是什么？"><a href="#Activity是什么？" class="headerlink" title="Activity是什么？"></a>Activity是什么？</h2><p>通俗点说Activity就是能与用户进行交互的界面，如点击、长按、上拉下滑等等。</p>
+<h2 id="Activity的4中状态"><a href="#Activity的4中状态" class="headerlink" title="Activity的4中状态"></a>Activity的4中状态</h2><ol>
+<li>running：运行状态，位于前台可与用户进行交互</li>
+<li>paused：暂停状态，可见但不可与用户进行交互</li>
+<li>stopped：停止状态，位于后台不可见</li>
+<li>killed：被杀死状态，被回收<h2 id="Activity的生命周期"><a href="#Activity的生命周期" class="headerlink" title="Activity的生命周期"></a>Activity的生命周期</h2></li>
 </ol>
-<p>点击Start Server后，可以看到下面的界面，说明已经启动成功了</p>
-<p><img src="/images/20171217/2017-12-17_195659.png" width="400" height="200" align="center"></p>
-<h1 id="使用Appium"><a href="#使用Appium" class="headerlink" title="使用Appium"></a>使用Appium</h1><p>使用Appium需要以下几个jar/zip 下载链接：<a href="https://pan.baidu.com/s/1qYiKl1E" target="_blank" rel="noopener">https://pan.baidu.com/s/1qYiKl1E</a> 密码：xug0</p>
+<p>下面是官网的一张图，有个大致的映像即可。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10083635-b82a41e346a4e651.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="060009291302389.png"></p>
+<p>主要说下面的几种情况：</p>
+<pre><code>1. Activity启动
+&gt; onCreate()-&gt;onStart()-&gt;onResume()
+2. 用户按下HOME键
+&gt; onPause()-&gt;onStop()
+3. 重新打开之前的Activity
+&gt; onRestart()-&gt;onStart()-&gt;onResume()
+4. 正常退出当前Activity
+&gt; onPause()-&gt;onStop()-&gt;onDestroy()
+</code></pre><h2 id="Android进程的优先级"><a href="#Android进程的优先级" class="headerlink" title="Android进程的优先级"></a>Android进程的优先级</h2><p>我们都知道在内存不足的时候系统会回收优先级低的进程。</p>
+<p><strong>前台-&gt;可见-&gt;服务-&gt;后台-&gt;空</strong></p>
 <ol>
-<li>java-client-5.0.4.jar</li>
-<li>selenium-java-3.8.1.zip</li>
-<li>selenium-server-standalone-3.8.1.jar</li>
+<li>前台：用户看得见并且可以交互</li>
+<li>可见：用户看到见但不可交互，举个简单的例子就是有个透明的Activity覆盖住了之前的Activity，那么之前的Activity就从前台转到了后台</li>
+<li>服务：就是在后台一直运行的services</li>
+<li>后台：与服务不同的是后台是由前台转换过来的，按下home键后之前的Activity就处于后台了</li>
+<li>空：优先级最低，不属于以上的类型，Android系统可随时杀掉该进程<h2 id="Android的任务栈"><a href="#Android的任务栈" class="headerlink" title="Android的任务栈"></a>Android的任务栈</h2>在Android中，Activity是存在于任务栈中，任务栈是一种栈结构，存放Activity的集合，如下图所示，是一种先进后出的结构。</li>
 </ol>
-<p>不要问我为什么是这三个东东下就是了</p>
-<h1 id="TestNG是什么？"><a href="#TestNG是什么？" class="headerlink" title="TestNG是什么？"></a>TestNG是什么？</h1><p>TestNG是一个开源自动化测试框架，TestNG表示下一代(Next Generation的首字母)，其灵感来自JUnit和NUnit，但引入了一些新的功能，使其功能更强大，使用更方便。</p>
-<h2 id="安装TestNG"><a href="#安装TestNG" class="headerlink" title="安装TestNG"></a>安装TestNG</h2><p>这里推荐使用eclipse的在线安装，安装步骤如下</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10083635-29266accaf360684.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="614265-20150829140521390-780924078.jpg"></p>
+<p>Activity在一定情况下可以单独占用一个任务栈，这里涉及到Activity的启动模式（后面再说）。</p>
+<h2 id="Activity的启动模式"><a href="#Activity的启动模式" class="headerlink" title="Activity的启动模式"></a>Activity的启动模式</h2><p>Activity的启动模式一共分为4种</p>
 <ol>
-<li>选择菜单：Help-&gt;Eclipse Marketplace，然后在search框中输入testng，点击右边的Go按钮，找到TestNG for Eclipse 点击Install，等待安装</li>
-<li>直到Finished之后，重启Eclipse完成安装</li>
+<li>standard：默认的是这个模式，每次创建一个Activity时都会新建一个实例，它不管任务栈中是否存在该实例，这样模式会消耗比较大的内存。</li>
+<li>singleTop：又叫做栈顶复用模式，每次创建一个新的Activity时都会在任务栈顶查看是否有该实例，如果有则复用，没有才创建。</li>
+<li>singleTask：该模式会一直复用任务栈中Activity实例，需要注意的是它会清除它之上的Activity从而是自己到达栈顶，用的比较多的地方就是一个应用的主页。</li>
+<li>singleInstance：该模式下创建Activity时会为这个Activity单独创建一个任务栈，用的比较多的一个场景是消息推送，用户点击通知栏上的消息进入到一个Activity中，当用户按下返回键时会之间退出这个应用，而不是进入到这个应用中，因为这个任务栈中只有这个Activity。</li>
 </ol>
-<blockquote>
-<p>到此Android自动化测试的工具你都应该下好了，那么使用TestNG和Appium进行Android自动化测试(二)将会介绍如何使用它们。</p>
-</blockquote>
 
       
     </div>
@@ -487,9 +491,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/TestNG/" rel="tag"><i class="fa fa-tag"></i> TestNG</a>
+            <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
           
-            <a href="/tags/Appium/" rel="tag"><i class="fa fa-tag"></i> Appium</a>
+            <a href="/tags/Activity/" rel="tag"><i class="fa fa-tag"></i> Activity</a>
           
         </div>
       
@@ -502,8 +506,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/14/use-hexo-github-to-make-blog/" rel="next" title="使用Hexo和GitHub来搭建个人博客">
-                <i class="fa fa-chevron-left"></i> 使用Hexo和GitHub来搭建个人博客
+              <a href="/2017/12/19/android-automated-test-by-testng-appium-two/" rel="next" title="使用TestNG和Appium进行Android自动化测试(二)">
+                <i class="fa fa-chevron-left"></i> 使用TestNG和Appium进行Android自动化测试(二)
               </a>
             
           </div>
@@ -511,10 +515,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/19/android-automated-test-by-testng-appium-two/" rel="prev" title="使用TestNG和Appium进行Android自动化测试(二)">
-                使用TestNG和Appium进行Android自动化测试(二) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -670,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Appium-是什么？"><span class="nav-number">2.</span> <span class="nav-text"><a href="#Appium-&#x662F;&#x4EC0;&#x4E48;&#xFF1F;" class="headerlink" title="Appium &#x662F;&#x4EC0;&#x4E48;&#xFF1F;"></a>Appium &#x662F;&#x4EC0;&#x4E48;&#xFF1F;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Appium"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#&#x5B89;&#x88C5;Appium" class="headerlink" title="&#x5B89;&#x88C5;Appium"></a>&#x5B89;&#x88C5;Appium</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行Appium"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="#&#x8FD0;&#x884C;Appium" class="headerlink" title="&#x8FD0;&#x884C;Appium"></a>&#x8FD0;&#x884C;Appium</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Appium"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x4F7F;&#x7528;Appium" class="headerlink" title="&#x4F7F;&#x7528;Appium"></a>&#x4F7F;&#x7528;Appium</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TestNG是什么？"><span class="nav-number">4.</span> <span class="nav-text"><a href="#TestNG&#x662F;&#x4EC0;&#x4E48;&#xFF1F;" class="headerlink" title="TestNG&#x662F;&#x4EC0;&#x4E48;&#xFF1F;"></a>TestNG&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装TestNG"><span class="nav-number">4.1.</span> <span class="nav-text"><a href="#&#x5B89;&#x88C5;TestNG" class="headerlink" title="&#x5B89;&#x88C5;TestNG"></a>&#x5B89;&#x88C5;TestNG</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity是什么？"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Activity&#x662F;&#x4EC0;&#x4E48;&#xFF1F;" class="headerlink" title="Activity&#x662F;&#x4EC0;&#x4E48;&#xFF1F;"></a>Activity&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity的4中状态"><span class="nav-number">2.</span> <span class="nav-text"><a href="#Activity&#x7684;4&#x4E2D;&#x72B6;&#x6001;" class="headerlink" title="Activity&#x7684;4&#x4E2D;&#x72B6;&#x6001;"></a>Activity&#x7684;4&#x4E2D;&#x72B6;&#x6001;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity的生命周期"><span class="nav-number">3.</span> <span class="nav-text"><a href="#Activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;" class="headerlink" title="Activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;"></a>Activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android进程的优先级"><span class="nav-number">4.</span> <span class="nav-text"><a href="#Android&#x8FDB;&#x7A0B;&#x7684;&#x4F18;&#x5148;&#x7EA7;" class="headerlink" title="Android&#x8FDB;&#x7A0B;&#x7684;&#x4F18;&#x5148;&#x7EA7;"></a>Android&#x8FDB;&#x7A0B;&#x7684;&#x4F18;&#x5148;&#x7EA7;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android的任务栈"><span class="nav-number">5.</span> <span class="nav-text"><a href="#Android&#x7684;&#x4EFB;&#x52A1;&#x6808;" class="headerlink" title="Android&#x7684;&#x4EFB;&#x52A1;&#x6808;"></a>Android&#x7684;&#x4EFB;&#x52A1;&#x6808;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity的启动模式"><span class="nav-number">6.</span> <span class="nav-text"><a href="#Activity&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;" class="headerlink" title="Activity&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;"></a>Activity&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;</span></a></li></ol></div>
             
 
           </div>

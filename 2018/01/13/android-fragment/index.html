@@ -92,7 +92,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,Activity," />
+  <meta name="keywords" content="Android,Fragment," />
 
 
 
@@ -108,21 +108,24 @@
 
 
 
-<meta name="description" content="Activity是什么？通俗点说Activity就是能与用户进行交互的界面，如点击、长按、上拉下滑等等。 Activity的4中状态 running：运行状态，位于前台可与用户进行交互 paused：暂停状态，可见但不可与用户进行交互 stopped：停止状态，位于后台不可见 killed：被杀死状态，被回收">
-<meta name="keywords" content="Android,Activity">
+<meta name="description" content="为什么说Fragment是Android中的第五大组件Fragment是在Android 3.0之后提出来的，目的是为了解决平板上的显示效果，如下图所示。  从目前的Android应用的架构来说，主流使用的是多Activity+多Fragment这种模式，即一个Activity管理多个Fragment，比如说一个Activity管理登录、注册和忘记密码这几个Fragment。由此可以看出Fragm">
+<meta name="keywords" content="Android,Fragment">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Activity基础知识">
-<meta property="og:url" content="http://yoursite.com/2018/01/13/android-activity/index.html">
+<meta property="og:title" content="Fragment基础知识">
+<meta property="og:url" content="http://yoursite.com/2018/01/13/android-fragment/index.html">
 <meta property="og:site_name" content="Yang Chen&#39;s Blog">
-<meta property="og:description" content="Activity是什么？通俗点说Activity就是能与用户进行交互的界面，如点击、长按、上拉下滑等等。 Activity的4中状态 running：运行状态，位于前台可与用户进行交互 paused：暂停状态，可见但不可与用户进行交互 stopped：停止状态，位于后台不可见 killed：被杀死状态，被回收">
+<meta property="og:description" content="为什么说Fragment是Android中的第五大组件Fragment是在Android 3.0之后提出来的，目的是为了解决平板上的显示效果，如下图所示。  从目前的Android应用的架构来说，主流使用的是多Activity+多Fragment这种模式，即一个Activity管理多个Fragment，比如说一个Activity管理登录、注册和忘记密码这几个Fragment。由此可以看出Fragm">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10083635-b82a41e346a4e651.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10083635-29266accaf360684.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-01-13T01:53:29.129Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10083635-24710081e8762e52.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10083635-e295cec772ea47f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10083635-cbb0f941b7914be2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10083635-4264f24c88b3889b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10083635-28de26429321a4a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-01-13T04:03:20.158Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Activity基础知识">
-<meta name="twitter:description" content="Activity是什么？通俗点说Activity就是能与用户进行交互的界面，如点击、长按、上拉下滑等等。 Activity的4中状态 running：运行状态，位于前台可与用户进行交互 paused：暂停状态，可见但不可与用户进行交互 stopped：停止状态，位于后台不可见 killed：被杀死状态，被回收">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/10083635-b82a41e346a4e651.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="Fragment基础知识">
+<meta name="twitter:description" content="为什么说Fragment是Android中的第五大组件Fragment是在Android 3.0之后提出来的，目的是为了解决平板上的显示效果，如下图所示。  从目前的Android应用的架构来说，主流使用的是多Activity+多Fragment这种模式，即一个Activity管理多个Fragment，比如说一个Activity管理登录、注册和忘记密码这几个Fragment。由此可以看出Fragm">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/10083635-24710081e8762e52.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -151,13 +154,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/13/android-activity/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/13/android-fragment/"/>
 
 
 
 
 
-  <title>Activity基础知识 | Yang Chen's Blog</title>
+  <title>Fragment基础知识 | Yang Chen's Blog</title>
   
 
 
@@ -303,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/13/android-activity/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/13/android-fragment/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨晨">
@@ -320,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Activity基础知识</h1>
+          <h1 class="post-title" itemprop="name headline">Fragment基础知识</h1>
         
 
         <div class="post-meta">
@@ -332,7 +335,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-13T09:48:00+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-13T12:02:00+08:00">
                 2018-01-13
               </time>
             
@@ -386,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  702
+                  929
                 </span>
               
 
@@ -402,7 +405,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  3
+                  4
                 </span>
               
             </div>
@@ -423,42 +426,46 @@
       
 
       
-        <h2 id="Activity是什么？"><a href="#Activity是什么？" class="headerlink" title="Activity是什么？"></a>Activity是什么？</h2><p>通俗点说Activity就是能与用户进行交互的界面，如点击、长按、上拉下滑等等。</p>
-<h2 id="Activity的4中状态"><a href="#Activity的4中状态" class="headerlink" title="Activity的4中状态"></a>Activity的4中状态</h2><ol>
-<li>running：运行状态，位于前台可与用户进行交互</li>
-<li>paused：暂停状态，可见但不可与用户进行交互</li>
-<li>stopped：停止状态，位于后台不可见</li>
-<li>killed：被杀死状态，被回收</li>
+        <h2 id="为什么说Fragment是Android中的第五大组件"><a href="#为什么说Fragment是Android中的第五大组件" class="headerlink" title="为什么说Fragment是Android中的第五大组件"></a>为什么说Fragment是Android中的第五大组件</h2><p>Fragment是在Android 3.0之后提出来的，目的是为了解决平板上的显示效果，如下图所示。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10083635-24710081e8762e52.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="380905-20151224112517031-937145335.jpg"></p>
+<p>从目前的Android应用的架构来说，主流使用的是多Activity+多Fragment这种模式，即一个Activity管理多个Fragment，比如说一个Activity管理登录、注册和忘记密码这几个Fragment。<br>由此可以看出Fragment的使用频率已经不低于Activity了，并且Fragment具有更低的内存消耗，页面间的切换也更加的流畅。<br>还有一个原因就是Fragment拥有自己的生命周期，不过它必须依附于Activity。<br><a id="more"></a></p>
+<h2 id="Fragment的两种创建方式"><a href="#Fragment的两种创建方式" class="headerlink" title="Fragment的两种创建方式"></a>Fragment的两种创建方式</h2><ol>
+<li>直接把Fragment写在布局中，把它当做一个控件来使用，这里需要为fragment标签绑定Fragment，即填写name属性即可</li>
 </ol>
-<a id="more"></a>
-<h2 id="Activity的生命周期"><a href="#Activity的生命周期" class="headerlink" title="Activity的生命周期"></a>Activity的生命周期</h2><p>下面是官网的一张图，有个大致的映像即可。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10083635-b82a41e346a4e651.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="060009291302389.png"></p>
-<p>主要说下面的几种情况：</p>
-<pre><code>1. Activity启动
-&gt; onCreate()-&gt;onStart()-&gt;onResume()
-2. 用户按下HOME键
-&gt; onPause()-&gt;onStop()
-3. 重新打开之前的Activity
-&gt; onRestart()-&gt;onStart()-&gt;onResume()
-4. 正常退出当前Activity
-&gt; onPause()-&gt;onStop()-&gt;onDestroy()
-</code></pre><h2 id="Android进程的优先级"><a href="#Android进程的优先级" class="headerlink" title="Android进程的优先级"></a>Android进程的优先级</h2><p>我们都知道在内存不足的时候系统会回收优先级低的进程。</p>
-<p><strong>前台-&gt;可见-&gt;服务-&gt;后台-&gt;空</strong></p>
-<ol>
-<li>前台：用户看得见并且可以交互</li>
-<li>可见：用户看到见但不可交互，举个简单的例子就是有个透明的Activity覆盖住了之前的Activity，那么之前的Activity就从前台转到了后台</li>
-<li>服务：就是在后台一直运行的services</li>
-<li>后台：与服务不同的是后台是由前台转换过来的，按下home键后之前的Activity就处于后台了</li>
-<li>空：优先级最低，不属于以上的类型，Android系统可随时杀掉该进程<h2 id="Android的任务栈"><a href="#Android的任务栈" class="headerlink" title="Android的任务栈"></a>Android的任务栈</h2>在Android中，Activity是存在于任务栈中，任务栈是一种栈结构，存放Activity的集合，如下图所示，是一种先进后出的结构。</li>
+<pre><code>&lt;fragment  
+android:id=&quot;@+id/id_fragment_title&quot;  
+android:name=&quot;com.yangc.fragments.TitleFragment&quot;  
+android:layout_width=&quot;fill_parent&quot;  
+android:layout_height=&quot;45dp&quot; /&gt;  
+</code></pre><ol>
+<li><p>使用FragmentManager来动态的增删</p>
+<p> 动态的增删需要为Fragment指定一个布局容器来填充，如FrameLayout、RelativeLayout等</p>
+<p>  FragmentManager fm = getFragmentManager();<br> // 开启Fragment事务<br> FragmentTransaction transaction = fm.beginTransaction();<br> switch (v.getId())<br> {<br> case R.id.tab_bottom_weixin:<br> if (mWeixin == null)<br> {<br> mWeixin = new ContentFragment();<br> }<br> // 使用当前Fragment的布局替代id_content的控件<br> transaction.replace(R.id.id_content, mWeixin);<br> break;<br> case R.id.tab_bottom_friend:<br> if (mFriend == null)<br> {<br> mFriend = new FriendFragment();<br> }<br> transaction.replace(R.id.id_content, mFriend);<br> break;<br> }<br> // 事务提交<br> transaction.commit();<br> }  </p>
+</li>
 </ol>
-<p><img src="http://upload-images.jianshu.io/upload_images/10083635-29266accaf360684.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="614265-20150829140521390-780924078.jpg"></p>
-<p>Activity在一定情况下可以单独占用一个任务栈，这里涉及到Activity的启动模式（后面再说）。</p>
-<h2 id="Activity的启动模式"><a href="#Activity的启动模式" class="headerlink" title="Activity的启动模式"></a>Activity的启动模式</h2><p>Activity的启动模式一共分为4种</p>
+<p>这里需要注意的是FragmentTransaction transaction = fm.beginTransaction();和transaction.commit();需要成对的使用。</p>
+<h2 id="FragmentPageAdapter和FragmentStatePageAdapter的区别"><a href="#FragmentPageAdapter和FragmentStatePageAdapter的区别" class="headerlink" title="FragmentPageAdapter和FragmentStatePageAdapter的区别"></a>FragmentPageAdapter和FragmentStatePageAdapter的区别</h2><blockquote>
+<p>通常Fragment会和ViewPager一起配合着使用，来实现左右滑动切换页面的效果。</p>
+</blockquote>
+<p>FragmentPageAdapter使用在页面比较少的情况下，而FragmentStatePageAdapter使用在页面比较多的情况下，从源码中可以发现，FragmentPageAdapter在销毁每个item时是使用detach()方法，这个方法仅仅只是在UI层面上将Fragment进行脱离并没有销毁这个item，如下图所示。<br><img src="http://upload-images.jianshu.io/upload_images/10083635-e295cec772ea47f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2018-01-13_115457.png"></p>
+<p>而FragmentStatePageAdapter在销毁每个item时使用的是remove()方法，这个方法会销毁这个item，如下图所示，所以FragmentStatePageAdapter对内存更友好。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10083635-cbb0f941b7914be2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2018-01-13_115541.png"></p>
+<h2 id="Fragment的生命周期"><a href="#Fragment的生命周期" class="headerlink" title="Fragment的生命周期"></a>Fragment的生命周期</h2><p>Fragment的生命周期是依赖于Activity的，它不能单独存在，下图是其生命周期。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10083635-4264f24c88b3889b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="945877-20161123093212096-2032834078.png"></p>
+<p>下面来对Fragment的生命周期和Activity的生命周期一起进行分析，如下图所示。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10083635-28de26429321a4a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2018-01-13_102933.png"></p>
+<p>创建Fragment调用onAttach()方法，将Fragment与Activity进行关联，再调用onCreate()方法，调用onCreateView()方法，这个方法就是返回我们自己布局的，注意要返回根布局，View创建好后会调用onViewCreated()方法，再是Activity的onCreate()方法，启动Activity后会调用onActivityCreated方法，在是Activity的onStart方法，Fragment的onStart方法，Activity的onResume方法，Fragment的onResume()，到此Fragment已经可见并可以交互了。</p>
+<h2 id="Fragment的通信"><a href="#Fragment的通信" class="headerlink" title="Fragment的通信"></a>Fragment的通信</h2><p>有以下三种方式：</p>
 <ol>
-<li>standard：默认的是这个模式，每次创建一个Activity时都会新建一个实例，它不管任务栈中是否存在该实例，这样模式会消耗比较大的内存。</li>
-<li>singleTop：又叫做栈顶复用模式，每次创建一个新的Activity时都会在任务栈顶查看是否有该实例，如果有则复用，没有才创建。</li>
-<li>singleTask：该模式会一直复用任务栈中Activity实例，需要注意的是它会清除它之上的Activity从而是自己到达栈顶，用的比较多的地方就是一个应用的主页。</li>
-<li>singleInstance：该模式下创建Activity时会为这个Activity单独创建一个任务栈，用的比较多的一个场景是消息推送，用户点击通知栏上的消息进入到一个Activity中，当用户按下返回键时会之间退出这个应用，而不是进入到这个应用中，因为这个任务栈中只有这个Activity。</li>
+<li>在Fragment中调用Activity中的方法使用getActivity()，获取其宿主Activity</li>
+<li>在Activity中调用Fragment中的方法，需要在Fragment定义接口，在Activity中实现这个接口，即接口回调</li>
+<li>在Fragment中调用另一个Fragment中的方法，使用getActivity方法获取到宿主Activity，在调用Activity中的findFragmentById方法获取另一个Fragment。</li>
+</ol>
+<h2 id="Fragment的切换"><a href="#Fragment的切换" class="headerlink" title="Fragment的切换"></a>Fragment的切换</h2><ol>
+<li>replace：移除掉（实例会被回收掉）栈中的其他所有Fragment，并将当前Fragment添加到栈中，这种方式会使栈中仅有一个Fragment，并且每次都会新建Fragment实例。</li>
+<li>add&amp;remove：add会在栈中创建一个Fragment实例，而remove会销毁一个Fragment。</li>
+<li>hide&amp;show：把前面的Fragment隐藏掉了，把新的Fragment添加到栈中，并不会销毁之前的Fragment，不过这种方式会销毁比较多的内存，是开发中最常用的方式。</li>
+<li>attach&amp;detach：attach会重绘制View，detach不会销毁Fragment实例，而是销毁其View，这种方式比较鸡肋，开发中不常用。</li>
 </ol>
 
       
@@ -494,7 +501,7 @@
           
             <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
           
-            <a href="/tags/Activity/" rel="tag"><i class="fa fa-tag"></i> Activity</a>
+            <a href="/tags/Fragment/" rel="tag"><i class="fa fa-tag"></i> Fragment</a>
           
         </div>
       
@@ -507,8 +514,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/19/android-automated-test-by-testng-appium-two/" rel="next" title="使用TestNG和Appium进行Android自动化测试(二)">
-                <i class="fa fa-chevron-left"></i> 使用TestNG和Appium进行Android自动化测试(二)
+              <a href="/2018/01/13/android-activity/" rel="next" title="Activity基础知识">
+                <i class="fa fa-chevron-left"></i> Activity基础知识
               </a>
             
           </div>
@@ -516,10 +523,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/13/android-fragment/" rel="prev" title="Fragment基础知识">
-                Fragment基础知识 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -675,7 +678,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity是什么？"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Activity&#x662F;&#x4EC0;&#x4E48;&#xFF1F;" class="headerlink" title="Activity&#x662F;&#x4EC0;&#x4E48;&#xFF1F;"></a>Activity&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity的4中状态"><span class="nav-number">2.</span> <span class="nav-text"><a href="#Activity&#x7684;4&#x4E2D;&#x72B6;&#x6001;" class="headerlink" title="Activity&#x7684;4&#x4E2D;&#x72B6;&#x6001;"></a>Activity&#x7684;4&#x4E2D;&#x72B6;&#x6001;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity的生命周期"><span class="nav-number">3.</span> <span class="nav-text"><a href="#Activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;" class="headerlink" title="Activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;"></a>Activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android进程的优先级"><span class="nav-number">4.</span> <span class="nav-text"><a href="#Android&#x8FDB;&#x7A0B;&#x7684;&#x4F18;&#x5148;&#x7EA7;" class="headerlink" title="Android&#x8FDB;&#x7A0B;&#x7684;&#x4F18;&#x5148;&#x7EA7;"></a>Android&#x8FDB;&#x7A0B;&#x7684;&#x4F18;&#x5148;&#x7EA7;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android的任务栈"><span class="nav-number">5.</span> <span class="nav-text"><a href="#Android&#x7684;&#x4EFB;&#x52A1;&#x6808;" class="headerlink" title="Android&#x7684;&#x4EFB;&#x52A1;&#x6808;"></a>Android&#x7684;&#x4EFB;&#x52A1;&#x6808;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity的启动模式"><span class="nav-number">6.</span> <span class="nav-text"><a href="#Activity&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;" class="headerlink" title="Activity&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;"></a>Activity&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么说Fragment是Android中的第五大组件"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x4E3A;&#x4EC0;&#x4E48;&#x8BF4;Fragment&#x662F;Android&#x4E2D;&#x7684;&#x7B2C;&#x4E94;&#x5927;&#x7EC4;&#x4EF6;" class="headerlink" title="&#x4E3A;&#x4EC0;&#x4E48;&#x8BF4;Fragment&#x662F;Android&#x4E2D;&#x7684;&#x7B2C;&#x4E94;&#x5927;&#x7EC4;&#x4EF6;"></a>&#x4E3A;&#x4EC0;&#x4E48;&#x8BF4;Fragment&#x662F;Android&#x4E2D;&#x7684;&#x7B2C;&#x4E94;&#x5927;&#x7EC4;&#x4EF6;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fragment的两种创建方式"><span class="nav-number">2.</span> <span class="nav-text"><a href="#Fragment&#x7684;&#x4E24;&#x79CD;&#x521B;&#x5EFA;&#x65B9;&#x5F0F;" class="headerlink" title="Fragment&#x7684;&#x4E24;&#x79CD;&#x521B;&#x5EFA;&#x65B9;&#x5F0F;"></a>Fragment&#x7684;&#x4E24;&#x79CD;&#x521B;&#x5EFA;&#x65B9;&#x5F0F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FragmentPageAdapter和FragmentStatePageAdapter的区别"><span class="nav-number">3.</span> <span class="nav-text"><a href="#FragmentPageAdapter&#x548C;FragmentStatePageAdapter&#x7684;&#x533A;&#x522B;" class="headerlink" title="FragmentPageAdapter&#x548C;FragmentStatePageAdapter&#x7684;&#x533A;&#x522B;"></a>FragmentPageAdapter&#x548C;FragmentStatePageAdapter&#x7684;&#x533A;&#x522B;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fragment的生命周期"><span class="nav-number">4.</span> <span class="nav-text"><a href="#Fragment&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;" class="headerlink" title="Fragment&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;"></a>Fragment&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fragment的通信"><span class="nav-number">5.</span> <span class="nav-text"><a href="#Fragment&#x7684;&#x901A;&#x4FE1;" class="headerlink" title="Fragment&#x7684;&#x901A;&#x4FE1;"></a>Fragment&#x7684;&#x901A;&#x4FE1;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fragment的切换"><span class="nav-number">6.</span> <span class="nav-text"><a href="#Fragment&#x7684;&#x5207;&#x6362;" class="headerlink" title="Fragment&#x7684;&#x5207;&#x6362;"></a>Fragment&#x7684;&#x5207;&#x6362;</span></a></li></ol></div>
             
 
           </div>

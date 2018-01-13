@@ -121,7 +121,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10083635-cbb0f941b7914be2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10083635-4264f24c88b3889b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10083635-28de26429321a4a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-01-13T04:03:20.158Z">
+<meta property="og:updated_time" content="2018-01-13T04:05:25.986Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fragment基础知识">
 <meta name="twitter:description" content="为什么说Fragment是Android中的第五大组件Fragment是在Android 3.0之后提出来的，目的是为了解决平板上的显示效果，如下图所示。  从目前的Android应用的架构来说，主流使用的是多Activity+多Fragment这种模式，即一个Activity管理多个Fragment，比如说一个Activity管理登录、注册和忘记密码这几个Fragment。由此可以看出Fragm">
@@ -389,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  929
+                  960
                 </span>
               
 
@@ -432,17 +432,11 @@
 <h2 id="Fragment的两种创建方式"><a href="#Fragment的两种创建方式" class="headerlink" title="Fragment的两种创建方式"></a>Fragment的两种创建方式</h2><ol>
 <li>直接把Fragment写在布局中，把它当做一个控件来使用，这里需要为fragment标签绑定Fragment，即填写name属性即可</li>
 </ol>
-<pre><code>&lt;fragment  
-android:id=&quot;@+id/id_fragment_title&quot;  
-android:name=&quot;com.yangc.fragments.TitleFragment&quot;  
-android:layout_width=&quot;fill_parent&quot;  
-android:layout_height=&quot;45dp&quot; /&gt;  
-</code></pre><ol>
-<li><p>使用FragmentManager来动态的增删</p>
-<p> 动态的增删需要为Fragment指定一个布局容器来填充，如FrameLayout、RelativeLayout等</p>
-<p>  FragmentManager fm = getFragmentManager();<br> // 开启Fragment事务<br> FragmentTransaction transaction = fm.beginTransaction();<br> switch (v.getId())<br> {<br> case R.id.tab_bottom_weixin:<br> if (mWeixin == null)<br> {<br> mWeixin = new ContentFragment();<br> }<br> // 使用当前Fragment的布局替代id_content的控件<br> transaction.replace(R.id.id_content, mWeixin);<br> break;<br> case R.id.tab_bottom_friend:<br> if (mFriend == null)<br> {<br> mFriend = new FriendFragment();<br> }<br> transaction.replace(R.id.id_content, mFriend);<br> break;<br> }<br> // 事务提交<br> transaction.commit();<br> }  </p>
-</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;fragment  </span><br><span class="line">android:id=<span class="string">"@+id/id_fragment_title"</span>  </span><br><span class="line">android:name=<span class="string">"com.yangc.fragments.TitleFragment"</span>  </span><br><span class="line">android:layout_width=<span class="string">"fill_parent"</span>  </span><br><span class="line">android:layout_height=<span class="string">"45dp"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>使用FragmentManager来动态的增删</li>
 </ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">动态的增删需要为Fragment指定一个布局容器来填充，如FrameLayout、RelativeLayout等</span><br><span class="line"></span><br><span class="line"> FragmentManager fm = getFragmentManager();  </span><br><span class="line"><span class="comment">// 开启Fragment事务  </span></span><br><span class="line">FragmentTransaction transaction = fm.beginTransaction();  </span><br><span class="line"><span class="keyword">switch</span> (v.getId())  </span><br><span class="line">&#123;  </span><br><span class="line"><span class="keyword">case</span> R.id.tab_bottom_weixin:  </span><br><span class="line"><span class="keyword">if</span> (mWeixin == <span class="keyword">null</span>)  </span><br><span class="line">&#123;  </span><br><span class="line">mWeixin = <span class="keyword">new</span> ContentFragment();  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="comment">// 使用当前Fragment的布局替代id_content的控件  </span></span><br><span class="line">transaction.replace(R.id.id_content, mWeixin);  </span><br><span class="line"><span class="keyword">break</span>;  </span><br><span class="line"><span class="keyword">case</span> R.id.tab_bottom_friend:  </span><br><span class="line"><span class="keyword">if</span> (mFriend == <span class="keyword">null</span>)  </span><br><span class="line">&#123;  </span><br><span class="line">mFriend = <span class="keyword">new</span> FriendFragment();  </span><br><span class="line">&#125;  </span><br><span class="line">transaction.replace(R.id.id_content, mFriend);  </span><br><span class="line"><span class="keyword">break</span>;  </span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">// 事务提交  </span></span><br><span class="line">transaction.commit();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这里需要注意的是FragmentTransaction transaction = fm.beginTransaction();和transaction.commit();需要成对的使用。</p>
 <h2 id="FragmentPageAdapter和FragmentStatePageAdapter的区别"><a href="#FragmentPageAdapter和FragmentStatePageAdapter的区别" class="headerlink" title="FragmentPageAdapter和FragmentStatePageAdapter的区别"></a>FragmentPageAdapter和FragmentStatePageAdapter的区别</h2><blockquote>
 <p>通常Fragment会和ViewPager一起配合着使用，来实现左右滑动切换页面的效果。</p>

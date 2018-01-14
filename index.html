@@ -421,27 +421,14 @@
       
 	  
         
-          
-            <h2 id="对模板模式理解"><a href="#对模板模式理解" class="headerlink" title="对模板模式理解"></a>对模板模式理解</h2><p>模板模式就是定义一个抽象类，在这个抽象类中定义一些能被子类重写的抽象方法，同时定义一个不能被子类重写，按一定顺序执行的算法，子类不能改变这个执行顺序，但是可以根据自己的需求对其中的方法进行重写。<br>例如电脑从开机到关机要经过：</p>
-<p>开机-&gt;操作电脑-&gt;关机</p>
-<p>我们不能改变这个顺序，但可以对电脑的不同操作。</p>
-<blockquote>
-<p>对模板模式的一般例子可以参考：<a href="https://www.cnblogs.com/qq-361807535/p/6854191.html" target="_blank" rel="noopener">https://www.cnblogs.com/qq-361807535/p/6854191.html</a></p>
-</blockquote>
-<p>下面我主要说的是模板模式在Android开发中的具体应用，我们都知道在开发中我们都要写一个Activity的基类，主要抽象了一些我们在写Activity时都会用到的方法。</p>
-<p>比如，加载布局、初始化View、初始化一些数据等等。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState, persistentState);</span><br><span class="line">        setContentView();</span><br><span class="line">        ButterKnife.bind(<span class="keyword">this</span>);</span><br><span class="line">        initView();</span><br><span class="line">        initData();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 设置布局</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">setContentView</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 初始化View</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 初始化数据</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在BaseActivity中定义了3个抽象方法。</p>
-<ol>
-<li>setContentView：设置布局，需要子类来实现</li>
-<li>initView：初始化View，需要子类实现</li>
-<li>initData：初始化数据，需要子类实现<br>而在子类中不需要重写onCreate方法，只需要实现上面的3个方法即可，还有就是如果使用了ButterKnife的话，也只是需要在onCreate加入ButterKnife.bind(this);，在子类中就可以使用ButterKnife了。</li>
-</ol>
-<p>具体子类的代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">BaseActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">setContentView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>模板模式在Android开发中的应用就到此结束了。</p>
-
-          
+          <h2 id="对模板模式理解"><a href="#对模板模式理解" class="headerlink" title="对模板模式理解"></a>对模板模式理解</h2><p>模板模式就是定义一个抽象类，在这个抽象类中定义一些能被子类重写的抽象方法，同时定义一个不能被子类重写，按一定顺序执行的算法，子类不能改变这个执行顺序，但是可以根据自己的需求对其中的方法进行重写。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/14/Template-Pattern/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

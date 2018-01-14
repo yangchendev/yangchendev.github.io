@@ -92,7 +92,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,Activity," />
+  <meta name="keywords" content="Android,Design Pattern," />
 
 
 
@@ -108,21 +108,18 @@
 
 
 
-<meta name="description" content="Activity是什么？通俗点说Activity就是能与用户进行交互的界面，如点击、长按、上拉下滑等等。 Activity的4中状态 running：运行状态，位于前台可与用户进行交互 paused：暂停状态，可见但不可与用户进行交互 stopped：停止状态，位于后台不可见 killed：被杀死状态，被回收">
-<meta name="keywords" content="Android,Activity">
+<meta name="description" content="对模板模式理解模板模式就是定义一个抽象类，在这个抽象类中定义一些能被子类重写的抽象方法，同时定义一个不能被子类重写，按一定顺序执行的算法，子类不能改变这个执行顺序，但是可以根据自己的需求对其中的方法进行重写。例如电脑从开机到关机要经过： 开机-&amp;gt;操作电脑-&amp;gt;关机 我们不能改变这个顺序，但可以对电脑的不同操作。  对模板模式的一般例子可以参考：https://www.cnblogs.co">
+<meta name="keywords" content="Android,Design Pattern">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Activity基础知识">
-<meta property="og:url" content="http://yoursite.com/2018/01/13/android-activity/index.html">
+<meta property="og:title" content="模板模式在Android开发中的应用">
+<meta property="og:url" content="http://yoursite.com/2018/01/14/Template-Pattern/index.html">
 <meta property="og:site_name" content="Yang Chen&#39;s Blog">
-<meta property="og:description" content="Activity是什么？通俗点说Activity就是能与用户进行交互的界面，如点击、长按、上拉下滑等等。 Activity的4中状态 running：运行状态，位于前台可与用户进行交互 paused：暂停状态，可见但不可与用户进行交互 stopped：停止状态，位于后台不可见 killed：被杀死状态，被回收">
+<meta property="og:description" content="对模板模式理解模板模式就是定义一个抽象类，在这个抽象类中定义一些能被子类重写的抽象方法，同时定义一个不能被子类重写，按一定顺序执行的算法，子类不能改变这个执行顺序，但是可以根据自己的需求对其中的方法进行重写。例如电脑从开机到关机要经过： 开机-&amp;gt;操作电脑-&amp;gt;关机 我们不能改变这个顺序，但可以对电脑的不同操作。  对模板模式的一般例子可以参考：https://www.cnblogs.co">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10083635-b82a41e346a4e651.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10083635-29266accaf360684.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-01-13T01:53:29.129Z">
+<meta property="og:updated_time" content="2018-01-14T02:30:25.622Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Activity基础知识">
-<meta name="twitter:description" content="Activity是什么？通俗点说Activity就是能与用户进行交互的界面，如点击、长按、上拉下滑等等。 Activity的4中状态 running：运行状态，位于前台可与用户进行交互 paused：暂停状态，可见但不可与用户进行交互 stopped：停止状态，位于后台不可见 killed：被杀死状态，被回收">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/10083635-b82a41e346a4e651.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="模板模式在Android开发中的应用">
+<meta name="twitter:description" content="对模板模式理解模板模式就是定义一个抽象类，在这个抽象类中定义一些能被子类重写的抽象方法，同时定义一个不能被子类重写，按一定顺序执行的算法，子类不能改变这个执行顺序，但是可以根据自己的需求对其中的方法进行重写。例如电脑从开机到关机要经过： 开机-&amp;gt;操作电脑-&amp;gt;关机 我们不能改变这个顺序，但可以对电脑的不同操作。  对模板模式的一般例子可以参考：https://www.cnblogs.co">
 
 
 
@@ -151,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/13/android-activity/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/14/Template-Pattern/"/>
 
 
 
 
 
-  <title>Activity基础知识 | Yang Chen's Blog</title>
+  <title>模板模式在Android开发中的应用 | Yang Chen's Blog</title>
   
 
 
@@ -303,7 +300,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/13/android-activity/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/14/Template-Pattern/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨晨">
@@ -320,7 +317,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Activity基础知识</h1>
+          <h1 class="post-title" itemprop="name headline">模板模式在Android开发中的应用</h1>
         
 
         <div class="post-meta">
@@ -332,8 +329,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-13T09:48:00+08:00">
-                2018-01-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-14T10:28:00+08:00">
+                2018-01-14
               </time>
             
 
@@ -355,8 +352,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android基础知识/" itemprop="url" rel="index">
-                    <span itemprop="name">Android基础知识</span>
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
                   </a>
                 </span>
 
@@ -386,7 +383,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  702
+                  496
                 </span>
               
 
@@ -402,7 +399,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  3
+                  2
                 </span>
               
             </div>
@@ -423,43 +420,24 @@
       
 
       
-        <h2 id="Activity是什么？"><a href="#Activity是什么？" class="headerlink" title="Activity是什么？"></a>Activity是什么？</h2><p>通俗点说Activity就是能与用户进行交互的界面，如点击、长按、上拉下滑等等。</p>
-<h2 id="Activity的4中状态"><a href="#Activity的4中状态" class="headerlink" title="Activity的4中状态"></a>Activity的4中状态</h2><ol>
-<li>running：运行状态，位于前台可与用户进行交互</li>
-<li>paused：暂停状态，可见但不可与用户进行交互</li>
-<li>stopped：停止状态，位于后台不可见</li>
-<li>killed：被杀死状态，被回收</li>
-</ol>
-<a id="more"></a>
-<h2 id="Activity的生命周期"><a href="#Activity的生命周期" class="headerlink" title="Activity的生命周期"></a>Activity的生命周期</h2><p>下面是官网的一张图，有个大致的映像即可。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10083635-b82a41e346a4e651.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="060009291302389.png"></p>
-<p>主要说下面的几种情况：</p>
-<pre><code>1. Activity启动
-&gt; onCreate()-&gt;onStart()-&gt;onResume()
-2. 用户按下HOME键
-&gt; onPause()-&gt;onStop()
-3. 重新打开之前的Activity
-&gt; onRestart()-&gt;onStart()-&gt;onResume()
-4. 正常退出当前Activity
-&gt; onPause()-&gt;onStop()-&gt;onDestroy()
-</code></pre><h2 id="Android进程的优先级"><a href="#Android进程的优先级" class="headerlink" title="Android进程的优先级"></a>Android进程的优先级</h2><p>我们都知道在内存不足的时候系统会回收优先级低的进程。</p>
-<p><strong>前台-&gt;可见-&gt;服务-&gt;后台-&gt;空</strong></p>
+        <h2 id="对模板模式理解"><a href="#对模板模式理解" class="headerlink" title="对模板模式理解"></a>对模板模式理解</h2><p>模板模式就是定义一个抽象类，在这个抽象类中定义一些能被子类重写的抽象方法，同时定义一个不能被子类重写，按一定顺序执行的算法，子类不能改变这个执行顺序，但是可以根据自己的需求对其中的方法进行重写。<br>例如电脑从开机到关机要经过：</p>
+<p>开机-&gt;操作电脑-&gt;关机</p>
+<p>我们不能改变这个顺序，但可以对电脑的不同操作。</p>
+<blockquote>
+<p>对模板模式的一般例子可以参考：<a href="https://www.cnblogs.com/qq-361807535/p/6854191.html" target="_blank" rel="noopener">https://www.cnblogs.com/qq-361807535/p/6854191.html</a></p>
+</blockquote>
+<p>下面我主要说的是模板模式在Android开发中的具体应用，我们都知道在开发中我们都要写一个Activity的基类，主要抽象了一些我们在写Activity时都会用到的方法。</p>
+<p>比如，加载布局、初始化View、初始化一些数据等等。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState, persistentState);</span><br><span class="line">        setContentView();</span><br><span class="line">        ButterKnife.bind(<span class="keyword">this</span>);</span><br><span class="line">        initView();</span><br><span class="line">        initData();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 设置布局</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">setContentView</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 初始化View</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 初始化数据</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在BaseActivity中定义了3个抽象方法。</p>
 <ol>
-<li>前台：用户看得见并且可以交互</li>
-<li>可见：用户看到见但不可交互，举个简单的例子就是有个透明的Activity覆盖住了之前的Activity，那么之前的Activity就从前台转到了后台</li>
-<li>服务：就是在后台一直运行的services</li>
-<li>后台：与服务不同的是后台是由前台转换过来的，按下home键后之前的Activity就处于后台了</li>
-<li>空：优先级最低，不属于以上的类型，Android系统可随时杀掉该进程<h2 id="Android的任务栈"><a href="#Android的任务栈" class="headerlink" title="Android的任务栈"></a>Android的任务栈</h2>在Android中，Activity是存在于任务栈中，任务栈是一种栈结构，存放Activity的集合，如下图所示，是一种先进后出的结构。</li>
+<li>setContentView：设置布局，需要子类来实现</li>
+<li>initView：初始化View，需要子类实现</li>
+<li>initData：初始化数据，需要子类实现<br>而在子类中不需要重写onCreate方法，只需要实现上面的3个方法即可，还有就是如果使用了ButterKnife的话，也只是需要在onCreate加入ButterKnife.bind(this);，在子类中就可以使用ButterKnife了。</li>
 </ol>
-<p><img src="http://upload-images.jianshu.io/upload_images/10083635-29266accaf360684.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="614265-20150829140521390-780924078.jpg"></p>
-<p>Activity在一定情况下可以单独占用一个任务栈，这里涉及到Activity的启动模式（后面再说）。</p>
-<h2 id="Activity的启动模式"><a href="#Activity的启动模式" class="headerlink" title="Activity的启动模式"></a>Activity的启动模式</h2><p>Activity的启动模式一共分为4种</p>
-<ol>
-<li>standard：默认的是这个模式，每次创建一个Activity时都会新建一个实例，它不管任务栈中是否存在该实例，这样模式会消耗比较大的内存。</li>
-<li>singleTop：又叫做栈顶复用模式，每次创建一个新的Activity时都会在任务栈顶查看是否有该实例，如果有则复用，没有才创建。</li>
-<li>singleTask：该模式会一直复用任务栈中Activity实例，需要注意的是它会清除它之上的Activity从而是自己到达栈顶，用的比较多的地方就是一个应用的主页。</li>
-<li>singleInstance：该模式下创建Activity时会为这个Activity单独创建一个任务栈，用的比较多的一个场景是消息推送，用户点击通知栏上的消息进入到一个Activity中，当用户按下返回键时会之间退出这个应用，而不是进入到这个应用中，因为这个任务栈中只有这个Activity。</li>
-</ol>
+<p>具体子类的代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">BaseActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">setContentView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>模板模式在Android开发中的应用就到此结束了。</p>
 
       
     </div>
@@ -494,7 +472,7 @@
           
             <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
           
-            <a href="/tags/Activity/" rel="tag"><i class="fa fa-tag"></i> Activity</a>
+            <a href="/tags/Design-Pattern/" rel="tag"><i class="fa fa-tag"></i> Design Pattern</a>
           
         </div>
       
@@ -507,8 +485,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/19/android-automated-test-by-testng-appium-two/" rel="next" title="使用TestNG和Appium进行Android自动化测试(二)">
-                <i class="fa fa-chevron-left"></i> 使用TestNG和Appium进行Android自动化测试(二)
+              <a href="/2018/01/13/android-fragment/" rel="next" title="Fragment基础知识">
+                <i class="fa fa-chevron-left"></i> Fragment基础知识
               </a>
             
           </div>
@@ -516,10 +494,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/13/android-fragment/" rel="prev" title="Fragment基础知识">
-                Fragment基础知识 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -675,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity是什么？"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Activity&#x662F;&#x4EC0;&#x4E48;&#xFF1F;" class="headerlink" title="Activity&#x662F;&#x4EC0;&#x4E48;&#xFF1F;"></a>Activity&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity的4中状态"><span class="nav-number">2.</span> <span class="nav-text"><a href="#Activity&#x7684;4&#x4E2D;&#x72B6;&#x6001;" class="headerlink" title="Activity&#x7684;4&#x4E2D;&#x72B6;&#x6001;"></a>Activity&#x7684;4&#x4E2D;&#x72B6;&#x6001;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity的生命周期"><span class="nav-number">3.</span> <span class="nav-text"><a href="#Activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;" class="headerlink" title="Activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;"></a>Activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android进程的优先级"><span class="nav-number">4.</span> <span class="nav-text"><a href="#Android&#x8FDB;&#x7A0B;&#x7684;&#x4F18;&#x5148;&#x7EA7;" class="headerlink" title="Android&#x8FDB;&#x7A0B;&#x7684;&#x4F18;&#x5148;&#x7EA7;"></a>Android&#x8FDB;&#x7A0B;&#x7684;&#x4F18;&#x5148;&#x7EA7;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android的任务栈"><span class="nav-number">5.</span> <span class="nav-text"><a href="#Android&#x7684;&#x4EFB;&#x52A1;&#x6808;" class="headerlink" title="Android&#x7684;&#x4EFB;&#x52A1;&#x6808;"></a>Android&#x7684;&#x4EFB;&#x52A1;&#x6808;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity的启动模式"><span class="nav-number">6.</span> <span class="nav-text"><a href="#Activity&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;" class="headerlink" title="Activity&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;"></a>Activity&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对模板模式理解"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x5BF9;&#x6A21;&#x677F;&#x6A21;&#x5F0F;&#x7406;&#x89E3;" class="headerlink" title="&#x5BF9;&#x6A21;&#x677F;&#x6A21;&#x5F0F;&#x7406;&#x89E3;"></a>&#x5BF9;&#x6A21;&#x677F;&#x6A21;&#x5F0F;&#x7406;&#x89E3;</span></a></li></ol></div>
             
 
           </div>
